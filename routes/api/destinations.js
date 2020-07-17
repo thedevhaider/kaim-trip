@@ -96,4 +96,43 @@ router.post(
   }
 );
 
+// @routes     GET api/destinations/
+// @desc       List Destinations
+// @access     Public
+router.get("/", (req, res) => {
+  // Offsets for Pagination
+  const skip = req.query.skip ? Number(req.query.skip) : 0;
+  const limit = req.query.limit ? Number(req.query.limit) : 10;
+
+  // Query Destinations
+  Destination.find({}, {}, { skip: skip, limit: limit })
+    .sort("-createdAt")
+    .then((destinations) => res.json(destinations))
+    .catch((err) =>
+      res.status(400).json({ error: "Could not able to list Destinations" })
+    );
+});
+
+// @route   DELETE api/destinations/:destination_id
+// @desc    Delete Destination
+// @access  Private
+router.delete(
+  "/:destination_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    Destination.findById({ _id: req.params.destination_id })
+      .then((destination) => {
+        destination.remove();
+        res.json({
+          message: `Destination with id '${req.params.destination_id}' successfuly deleted`,
+        });
+      })
+      .catch((err) =>
+        res.status(400).json({
+          error: `Destination with id '${req.params.destination_id}' does not exists`,
+        })
+      );
+  }
+);
+
 module.exports = router;
