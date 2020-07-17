@@ -4,6 +4,7 @@ dotenv.config();
 const express = require("express");
 const mongoose = require("mongoose");
 const users = require("./routes/api/users");
+const destinations = require("./routes/api/destinations");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
@@ -15,9 +16,10 @@ const app = express();
 app.use(
   bodyParser.urlencoded({
     extended: false,
+    limit: "100mb",
   })
 );
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: "100mb" }));
 
 //Config Keys
 const db = keys.mongoURI;
@@ -30,7 +32,7 @@ mongoose
   })
   .then(() => {
     console.log("> MongoDB connected");
-    createAdminUser();
+    // createAdminUser();
   })
   .catch((err) => console.log(err, "Error"));
 
@@ -42,6 +44,7 @@ require("./config/passport")(passport);
 
 // Routes APIs
 app.use("/api/users", users);
+app.use("/api/destinations", destinations);
 
 const PORT = process.env.PORT || 5000;
 

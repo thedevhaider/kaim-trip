@@ -78,4 +78,34 @@ router.get(
   }
 );
 
+// @routes     GET api/users/
+// @desc       Returns all Users
+// @access     Private
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.find()
+      .sort({ date: -1 })
+      .then((users) => res.json(users))
+      .catch((err) => console.log(err));
+  }
+);
+
+// @routes     DELETE api/users/
+// @desc       Delete a User
+// @access     Private
+router.delete(
+  "/:user_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    User.findById({ _id: req.params.user_id })
+      .then((user) => {
+        user.remove();
+        res.json({ message: `User with id ${req.params.user_id} deleted` });
+      })
+      .catch((err) => res.status(404).json({ message: "User not found" }));
+  }
+);
+
 module.exports = router;
