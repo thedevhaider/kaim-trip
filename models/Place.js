@@ -10,6 +10,10 @@ const PlaceSchema = new Schema({
     type: String,
     required: true,
   },
+  tagline: {
+    type: String,
+    required: true,
+  },
   duration: {
     type: Number,
   },
@@ -29,7 +33,6 @@ const PlaceSchema = new Schema({
   },
   images: {
     type: [String],
-    required: true,
   },
   banner: {
     type: String,

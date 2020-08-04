@@ -96,6 +96,22 @@ router.post(
   }
 );
 
+// @routes     PUT api/destinations/:destination_id
+// @desc       Update Destination
+// @access     Private
+router.put(
+  "/:destination_id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // Validate request
+    const { isValid, errors } = validateDestinationInput(req.body);
+
+    if (!isValid) {
+      res.status(400).json(errors);
+    }
+  }
+);
+
 // @routes     GET api/destinations/
 // @desc       List Destinations
 // @access     Public

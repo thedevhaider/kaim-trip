@@ -5,6 +5,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const users = require("./routes/api/users");
 const destinations = require("./routes/api/destinations");
+const places = require("./routes/api/places");
 const passport = require("passport");
 const bodyParser = require("body-parser");
 const keys = require("./config/keys");
@@ -45,6 +46,7 @@ require("./config/passport")(passport);
 // Routes APIs
 app.use("/api/users", users);
 app.use("/api/destinations", destinations);
+app.use("/api/places", places);
 
 const PORT = process.env.PORT || 5000;
 
