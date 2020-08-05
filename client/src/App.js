@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
+import { Helmet } from "react-helmet";
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import './styles/App.css';
 import './styles/bootstrap.min.css';
 import './styles/magnific-popup.css';
@@ -22,6 +24,10 @@ import FourZeroFour  from './pages/404';
 function App() {
   return (
     <div>
+            <Helmet defer={false}>
+              <title>Kaim Trip</title>
+              <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
+            </Helmet>
       <Header/>
         <Router>
           <Fragment>

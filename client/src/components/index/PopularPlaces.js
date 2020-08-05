@@ -26,7 +26,7 @@ class PopularPlaces extends Component {
       data && data.length > 0 ? (
         data.map((not) => {
           return (
-            <div className="col-lg-4 col-md-6">
+            <div key={not.id} className="col-lg-4 col-md-6">
                 <div className="single_place">
                   <div className="thumb">
                     <img src="img/place/1.png" alt="" />
