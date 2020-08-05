@@ -11,7 +11,7 @@ class Header extends Component {
                 <div className="row align-items-center">
                   <div className="col-xl-2 col-lg-2">
                     <div className="logo">
-                      <a href="index.html">
+                      <a href="/">
                         <img src="img/logo.png" alt="" />
                       </a>
                     </div>
@@ -26,10 +26,10 @@ class Header extends Component {
                             </a>
                           </li>
                           <li>
-                            <a href="about.html">About</a>
+                            <a href="about">About</a>
                           </li>
                           <li>
-                            <a className href="travel_destination.html">
+                            <a className href="travel_destination">
                               Destination
                             </a>
                           </li>
@@ -39,30 +39,17 @@ class Header extends Component {
                             </a>
                             <ul className="submenu">
                               <li>
-                                <a href="destination_details.html">
+                                <a href="destination_details">
                                   Destinations details
                                 </a>
                               </li>
                               <li>
-                                <a href="elements.html">elements</a>
+                                <a href="elements">elements</a>
                               </li>
                             </ul>
                           </li>
                           <li>
-                            <a href="/">
-                              blog <i className="ti-angle-down" />
-                            </a>
-                            <ul className="submenu">
-                              <li>
-                                <a href="blog.html">blog</a>
-                              </li>
-                              <li>
-                                <a href="single-blog.html">single-blog</a>
-                              </li>
-                            </ul>
-                          </li>
-                          <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact">Contact</a>
                           </li>
                         </ul>
                       </nav>
@@ -73,47 +60,38 @@ class Header extends Component {
                       <div className="number">
                         <p>
                           {" "}
-                          <i className="fa fa-phone" /> 10(256)-928 256
+                          <i className="fa fa-phone" /> (+91) 956-9448-252
                         </p>
                       </div>
                       <div className="social_links d-none d-xl-block">
                         <ul>
                           <li>
-                            <a href="/">
+                            <a  rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/kaimtrip/">
                               {" "}
                               <i className="fa fa-instagram" />{" "}
                             </a>
                           </li>
                           <li>
-                            <a href="/">
+                            <a  rel="noopener noreferrer" target="_blank" href="https://twitter.com/kaimtrip">
                               {" "}
-                              <i className="fa fa-linkedin" />{" "}
+                              <i className="fa fa-twitter" />{" "}
                             </a>
                           </li>
                           <li>
-                            <a href="/">
+                            <a rel="noopener noreferrer" target="_blank" href="https://www.facebook.com/kaimtrip">
                               {" "}
                               <i className="fa fa-facebook" />{" "}
                             </a>
                           </li>
                           <li>
-                            <a href="/">
+                            <a  rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCmzoCYSWBP_wm4QbT9sURkQ">
                               {" "}
-                              <i className="fa fa-google-plus" />{" "}
+                              <i className="fa fa-youtube" />{" "}
                             </a>
                           </li>
                         </ul>
                       </div>
                     </div>
-                  </div>
-                  <div className="seach_icon">
-                    <a
-                      data-toggle="modal"
-                      data-target="#exampleModalCenter"
-                      href="/"
-                    >
-                      <i className="fa fa-search" />
-                    </a>
                   </div>
                   <div className="col-12">
                     <div className="mobile_menu d-block d-lg-none" />

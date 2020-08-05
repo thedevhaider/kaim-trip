@@ -15,33 +15,28 @@ class Footer extends Component {
                       </a>
                     </div>
                     <p>5th flora, 700/D kings road, green <br /> lane New York-1782 <br />
-                      <a href="/">+10 367 826 2567</a> <br />
-                      <a href="/">contact@carpenter.com</a>
+                      <a target="_blank" rel="noopener noreferrer"  href="tel:+919569448252">(+91) 956-9448-252</a> <br />
+                      <a target="_blank" rel="noopener noreferrer"  href="mailto:support@kaimtrip.com">support@kaimtrip.com</a>
                     </p>
                     <div className="socail_links">
                       <ul>
                         <li>
-                          <a href="/">
+                        <a rel="noopener noreferrer" target="_blank"  href="https://www.facebook.com/kaimtrip">
                             <i className="ti-facebook" />
                           </a>
                         </li>
                         <li>
-                          <a href="/">
+                        <a  target="_blank" rel="noopener noreferrer"  href="https://twitter.com/kaimtrip">
                             <i className="ti-twitter-alt" />
                           </a>
                         </li>
                         <li>
-                          <a href="/">
+                        <a  rel="noopener noreferrer" target="_blank" href="https://www.instagram.com/kaimtrip/">
                             <i className="fa fa-instagram" />
                           </a>
                         </li>
                         <li>
-                          <a href="/">
-                            <i className="fa fa-pinterest" />
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/">
+                        <a  rel="noopener noreferrer" target="_blank" href="https://www.youtube.com/channel/UCmzoCYSWBP_wm4QbT9sURkQ">
                             <i className="fa fa-youtube-play" />
                           </a>
                         </li>
@@ -82,7 +77,7 @@ class Footer extends Component {
                 <div className="col-xl-3 col-md-6 col-lg-3">
                   <div className="footer_widget">
                     <h3 className="footer_title">
-                      Instagram
+                      Image Gallery
                     </h3>
                     <div className="instagram_feed">
                       <div className="single_insta">
