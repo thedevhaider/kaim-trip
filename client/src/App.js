@@ -14,7 +14,10 @@ import './styles/slicknav.css';
 
 import Header from './components/layout/header';
 import Footer from './components/layout/footer';
+
 import Index  from './pages/index';
+import Contact  from './pages/contact';
+import FourZeroFour  from './pages/404';
 
 function App() {
   return (
@@ -24,6 +27,8 @@ function App() {
           <Fragment>
               <Switch>
                 <Route exact path="/" component={Index} />
+                <Route exact path="/contact" component={Contact} />
+                <Route component={FourZeroFour} />
               </Switch>
           </Fragment>
         </Router>
