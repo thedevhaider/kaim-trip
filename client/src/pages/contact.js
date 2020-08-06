@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {contactForm} from "../utils/data";
 
 class Contact extends Component {
     state = {
@@ -15,7 +16,13 @@ class Contact extends Component {
         const { name, email, message,subject,contactNumber } = this.state;
         event.preventDefault();
         const user = { name, email, message,subject,contactNumber };
-        console.log(user);
+        contactForm(user)
+        .then((data)=>{
+          alert("Contact form Submmited");
+        })
+        .catch((err)=>{
+          alert("Error,Please try Again Later!!");
+        })
       };
   render() {
     return (
@@ -88,14 +95,16 @@ class Contact extends Component {
                 <div className="media contact-info">
                   <span className="contact-info__icon"><i className="ti-tablet" /></span>
                   <div className="media-body">
-                    <h3>+1 253 565 2365</h3>
+                      <a target="_blank" rel="noopener noreferrer"  href="tel:+919569448252">(+91) 956-9448-252</a>
                     <p>Mon to Fri 9am to 6pm</p>
                   </div>
                 </div>
                 <div className="media contact-info">
                   <span className="contact-info__icon"><i className="ti-email" /></span>
                   <div className="media-body">
-                    <h3><a href="https://colorlib.com/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="f4878184849b8680b4979b989b86989d96da979b99">[email&nbsp;protected]</a></h3>
+                    <h3>
+                       <a target="_blank" rel="noopener noreferrer"  href="mailto:support@kaimtrip.com">support@kaimtrip.com</a>
+                    </h3>
                     <p>Send us your query anytime!</p>
                   </div>
                 </div>
