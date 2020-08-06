@@ -27,7 +27,7 @@ router.post(
     const { isValid, errors } = validateDestinationInput(req.body);
 
     if (!isValid) {
-      res.status(400).json(errors);
+      return res.status(400).json(errors);
     }
 
     // Check is Destination already exists
@@ -76,7 +76,7 @@ router.post(
             // Create Destination into Database
             new Destination(destinationFields)
               .save()
-              .then((destination) => res.json(destination))
+              .then((destination) => res.status(201).json(destination))
               .catch((err) =>
                 res
                   .status(400)
