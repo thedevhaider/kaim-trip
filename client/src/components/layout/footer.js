@@ -11,7 +11,7 @@ class Footer extends Component {
                   <div className="footer_widget">
                     <div className="footer_logo">
                       <a href="/">
-                        <img src="img/footer_logo.png" alt="" />
+                        <img src="/img/footer_logo.png" alt="" />
                       </a>
                     </div>
                     <p>5th flora, 700/D kings road, green <br /> lane New York-1782 <br />
@@ -82,32 +82,32 @@ class Footer extends Component {
                     <div className="instagram_feed">
                       <div className="single_insta">
                         <a href="/">
-                          <img src="img/instagram/1.png" alt="" />
+                          <img src="/img/instagram/1.png" alt="" />
                         </a>
                       </div>
                       <div className="single_insta">
                         <a href="/">
-                          <img src="img/instagram/2.png" alt="" />
+                          <img src="/img/instagram/2.png" alt="" />
                         </a>
                       </div>
                       <div className="single_insta">
                         <a href="/">
-                          <img src="img/instagram/3.png" alt="" />
+                          <img src="/img/instagram/3.png" alt="" />
                         </a>
                       </div>
                       <div className="single_insta">
                         <a href="/">
-                          <img src="img/instagram/4.png" alt="" />
+                          <img src="/img/instagram/4.png" alt="" />
                         </a>
                       </div>
                       <div className="single_insta">
                         <a href="/">
-                          <img src="img/instagram/5.png" alt="" />
+                          <img src="/img/instagram/5.png" alt="" />
                         </a>
                       </div>
                       <div className="single_insta">
                         <a href="/">
-                          <img src="img/instagram/6.png" alt="" />
+                          <img src="/img/instagram/6.png" alt="" />
                         </a>
                       </div>
                     </div>

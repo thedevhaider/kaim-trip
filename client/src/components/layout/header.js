@@ -12,7 +12,7 @@ class Header extends Component {
                   <div className="col-xl-2 col-lg-2">
                     <div className="logo">
                       <a href="/">
-                        <img src="img/logo.png" alt="" />
+                        <img src="/img/logo.png" alt="" />
                       </a>
                     </div>
                   </div>
