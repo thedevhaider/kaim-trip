@@ -22,6 +22,7 @@ import Contact  from './pages/contact';
 import About  from './pages/about';
 import FourZeroFour  from './pages/404';
 import Destination  from './pages/destination';
+import AllDestinations  from './pages/AllDestinations';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
                 <Route exact path="/contact" component={Contact} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/destination/:destination" component={Destination} />
+                <Route exact path="/destinations" component={AllDestinations} />
                 <Route component={FourZeroFour} />
               </Switch>
           </Fragment>
