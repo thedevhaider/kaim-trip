@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import Slider from '../components/index/slider';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Destinations from '../components/others/Destinations';
 
 class AllDestinations extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class AllDestinations extends Component {
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
             <Slider/>
+            {!this.state.isLoading ? <Destinations data ={this.state.data}/> : <div>fff</div> }
         </div>
     );
   }
