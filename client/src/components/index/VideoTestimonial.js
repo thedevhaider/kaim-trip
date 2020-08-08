@@ -20,20 +20,6 @@ class VideoTestimonial extends Component {
                     height: 0
                   }}
                 >
-                <iframe
-                  title="Video"
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%"
-                  }}
-                  src="https://www.youtube.com/embed/1G4isv_Fylg"
-                  frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-               >
-               </iframe>
                 </div>
                   </div>
                 </div>
