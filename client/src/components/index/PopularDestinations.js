@@ -1,24 +1,11 @@
 import React, { Component } from "react";
 
 class PopularDestinations extends Component {
-    constructor(props) {
+   constructor(props) {
         super(props);
         this.state = {
-          data : null
+          data : this.props.data
         };
-      }
-      componentDidMount() {
-          this.renderMyData();
-      }
-      renderMyData(){
-          fetch('https://picsum.photos/v2/list?limit=10')
-              .then((response) => response.json())
-              .then((responseJson) => {
-                this.setState({ data : responseJson })
-              })
-              .catch((error) => {
-                console.error(error);
-              });
       }
   render() {
       var {data} = this.state;
