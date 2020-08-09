@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner'
-import Destinations from '../components/others/Destinations';
+import AllDestinationsComponent from '../components/others/AllDestinations';
 import PageHeader from '../components/others/PageHeader';
 
 class AllDestinations extends Component {
@@ -46,7 +46,7 @@ class AllDestinations extends Component {
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
             <PageHeader title="All Destinations" description="All Destinations" imageLink = {"/img/banner/bradcam2.png"}/>
-            {!this.state.isLoading ? <Destinations data ={this.state.data}/> : loadingDiv }
+            {!this.state.isLoading ? <AllDestinationsComponent data ={this.state.data}/> : loadingDiv }
         </div>
     );
   }
