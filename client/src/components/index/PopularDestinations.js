@@ -49,6 +49,13 @@ class PopularDestinations extends Component {
           <div className="row">
           {notificationsMarkup}
           </div>
+          <div className="row">
+          <div className="col-lg-12">
+            <div className="more_place_btn text-center">
+              <a className="boxed-btn4" href="/destinations">More Destinations</a>
+            </div>
+          </div>
+        </div>
         </div>
       </div>
     );

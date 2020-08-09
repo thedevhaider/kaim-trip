@@ -63,7 +63,7 @@ class PopularPlaces extends Component {
             <div className="row">
               <div className="col-lg-12">
                 <div className="more_place_btn text-center">
-                  <a className="boxed-btn4" href="/">More Places</a>
+                  <a className="boxed-btn4" href="/places">More Places</a>
                 </div>
               </div>
             </div>

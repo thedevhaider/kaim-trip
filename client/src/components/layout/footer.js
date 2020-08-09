@@ -50,10 +50,10 @@ class Footer extends Component {
                       Company
                     </h3>
                     <ul className="links">
-                      <li><a href="/">Pricing</a></li>
-                      <li><a href="/">About</a></li>
-                      <li><a href="/"> Gallery</a></li>
-                      <li><a href="/"> Contact</a></li>
+                      <li><a href="/about">About Us</a></li>
+                      <li><a href="/contact"> Contact Us</a></li>
+                      <li><a href="/destinations"> Destinations</a></li>
+                      <li><a href="/places"> Places</a></li>
                     </ul>
                   </div>
                 </div>
