@@ -46,7 +46,7 @@ class DestinationPlaces extends Component {
         </div>
       );
     return (
-        <div className="popular_places_area">
+        <div id="places" className="popular_places_area">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-6">
