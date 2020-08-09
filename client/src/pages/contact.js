@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {contactForm} from "../utils/data";
+import PageHeader from '../components/others/PageHeader';
 
 class Contact extends Component {
     state = {
@@ -27,18 +28,7 @@ class Contact extends Component {
   render() {
     return (
         <div>
-        <div className="bradcam_area bradcam_bg_4">
-          <div className="container">
-            <div className="row">
-              <div className="col-xl-12">
-                <div className="bradcam_text text-center">
-                  <h3>contact</h3>
-                  <p>Pixel perfect design with awesome contents</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageHeader title="Contact Us" description="Pixel perfect design with awesome contents" imageLink = {"/img/banner/bradcam4.png"}/>
         <section className="contact-section">
           <div className="container">
             <div className="row">

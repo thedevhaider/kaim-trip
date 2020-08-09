@@ -20,13 +20,13 @@ class Destinations extends Component {
                   src="img/blog/single_blog_1.png"
                   alt=""
                 />
-                <a href={`/destination/${not.username.toLowerCase().replace(/\s/g, "-")}/#places`} className="blog_item_date">
+                <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}/#places`} className="blog_item_date">
                   <h3>{not.id}</h3>
                   <p>Places</p>
                 </a>
               </div>
               <div className="blog_details">
-                <a className="d-inline-block" href={`/destination/${not.username.toLowerCase().replace(/\s/g, "-")}/#places`}>
+                <a className="d-inline-block" href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}`}>
                   <h2>{not.name}</h2>
                 </a>
                 <p>
