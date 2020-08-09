@@ -1,28 +1,19 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import VideoTestimonial from '../components/index/VideoTestimonial';
+import PageHeader from '../components/others/PageHeader';
 
 class About extends Component {
   render() {
+    var description =`KaimTrip offers you a very useful platform to plan your most
+    memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!`;
     return (
         <div>
             <Helmet>
               <title>About Us | Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-            <div className="bradcam_area bradcam_bg_3">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-xl-12">
-                        <div className="bradcam_text text-center">
-                            <h3>About Us</h3>
-                            <p>KaimTrip offers you a very useful platform to plan your most
-                                memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!</p>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-          </div>
+          <PageHeader title="About Us" description={description}/>
           <div className="about_story">
           <div className="container">
             <div className="row">

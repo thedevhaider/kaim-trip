@@ -9,16 +9,32 @@ class Destination extends Component {
     super(props);
     this.state = {
       data:{
-        name:'Mohit',
+        name:'Alejandro Escamilla',
         shortdescription:'A Short Description.',
         description:'A long Description.',
         dateData:[
           {
-            description:'Single Day',
+            description:'First Day',
             image:'https://images.unsplash.com/photo-1427435150519-42d9bcd0aa81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
           },
           {
-            description:'Single Day',
+            description:'Second Day',
+            image:'https://images.unsplash.com/photo-1427435150519-42d9bcd0aa81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+          }
+        ],
+        placesData:[
+          {
+            name:'Hills',
+            price:'4000 Rs.',
+            rating:4,
+            days:5,
+            image:'https://images.unsplash.com/photo-1427435150519-42d9bcd0aa81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
+          },
+          {
+            name:'Ice',
+            price:'4000 Rs.',
+            rating:4,
+            days:5,
             image:'https://images.unsplash.com/photo-1427435150519-42d9bcd0aa81?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
           }
         ]

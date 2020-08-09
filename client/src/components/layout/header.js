@@ -26,11 +26,11 @@ class Header extends Component {
                             </a>
                           </li>
                           <li>
-                            <a href="about">About</a>
+                            <a href="/about">About</a>
                           </li>
                           <li>
-                            <a className href="travel_destination">
-                              Destination
+                            <a className href="/destinations">
+                              Destinations
                             </a>
                           </li>
                           <li>
@@ -49,7 +49,7 @@ class Header extends Component {
                             </ul>
                           </li>
                           <li>
-                            <a href="contact">Contact</a>
+                            <a href="/contact">Contact</a>
                           </li>
                         </ul>
                       </nav>
