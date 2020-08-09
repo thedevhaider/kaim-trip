@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Helmet } from "react-helmet";
-import Slider from '../components/index/slider';
 import DestinationDetails from '../components/destination/DestinationDetails';
 import DestinationPlaces from '../components/destination/DestinationPlaces';
+import PageHeader from '../components/others/PageHeader';
 
 class Destination extends Component {
   constructor(props) {
@@ -46,10 +46,10 @@ class Destination extends Component {
     return (
         <div>
             <Helmet>
-              <title>Kaim Trip</title>
+              <title>Visit {this.state.data.name} by Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-            <Slider/>
+            <PageHeader title={this.state.data.name} description={this.state.data.shortdescription} imageLink = {"/img/banner/bradcam2.png"}/>
             <DestinationDetails data ={data}/>
             <DestinationPlaces  data ={data}/>
         </div>
