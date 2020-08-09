@@ -45,7 +45,7 @@ class AllDestinations extends Component {
               <title>Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-            <PageHeader title="All Destinations" description="All Destinations"/>
+            <PageHeader title="All Destinations" description="All Destinations" imageLink = {"/img/banner/bradcam2.png"}/>
             {!this.state.isLoading ? <Destinations data ={this.state.data}/> : loadingDiv }
         </div>
     );

@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class PageHeader extends Component {
   render() {
     return (
-    <div className="bradcam_area bradcam_bg_3">
+    <div style={{ backgroundImage: `url(${this.props.imageLink})` }} className="bradcam_area bradcam_bg_3">
             <div className="container">
                 <div className="row">
                     <div className="col-xl-12">
