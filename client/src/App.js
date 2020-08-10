@@ -22,6 +22,7 @@ import Contact  from './pages/contact';
 import About  from './pages/about';
 import FourZeroFour  from './pages/404';
 import SingleDestination from './pages/SingleDestination';
+import SinglePlace from './pages/SinglePlace';
 import AllDestinations  from './pages/AllDestinations';
 import AllPlaces  from './pages/AllPlaces';
 
@@ -42,6 +43,7 @@ function App() {
                 <Route exact path="/destinations" component={AllDestinations} />
                 <Route exact path="/places" component={AllPlaces} />
                 <Route exact path="/destination/:destination" component={SingleDestination} />
+                <Route exact path="/:destination/:place" component={SinglePlace} />
                 <Route component={FourZeroFour} />
               </Switch>
           </Fragment>

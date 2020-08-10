@@ -9,7 +9,7 @@ class SinglePlaceDiv extends Component {
                     <a href="/" className="prise">$500</a>
                   </div>
                   <div className="place_info">
-                    <a href="destination_details.html"><h3>{this.props.data.name}</h3></a>
+                    <a href={`/${this.props.data.name}/${this.props.data.name}`}><h3>{this.props.data.name}</h3></a>
                     <p>{this.props.data.name}</p>
                     <div className="rating_days d-flex justify-content-between">
                       <span className="d-flex justify-content-center align-items-center">
