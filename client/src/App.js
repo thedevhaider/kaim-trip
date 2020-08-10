@@ -23,6 +23,7 @@ import About  from './pages/about';
 import FourZeroFour  from './pages/404';
 import SingleDestination from './pages/SingleDestination';
 import AllDestinations  from './pages/AllDestinations';
+import AllPlaces  from './pages/AllPlaces';
 
 function App() {
   return (
@@ -38,8 +39,9 @@ function App() {
                 <Route exact path="/" component={Index} />
                 <Route exact path="/contact" component={Contact} />
                 <Route exact path="/about" component={About} />
-                <Route exact path="/destination/:destination" component={SingleDestination} />
                 <Route exact path="/destinations" component={AllDestinations} />
+                <Route exact path="/places" component={AllPlaces} />
+                <Route exact path="/destination/:destination" component={SingleDestination} />
                 <Route component={FourZeroFour} />
               </Switch>
           </Fragment>

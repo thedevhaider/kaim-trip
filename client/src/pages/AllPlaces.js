@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner'
-import AllDestinationsComponent from '../components/others/AllDestinations';
+import AllPlacesComponent from '../components/others/AllPlaces';
 import PageHeader from '../components/others/PageHeader';
 
-class AllDestinations extends Component {
+class AllPlaces extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -42,14 +42,14 @@ class AllDestinations extends Component {
     return (
         <div>
             <Helmet>
-              <title>All Destinations to Visit | Kaim Trip</title>
+              <title>All Places to Visit | Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-            <PageHeader title="All Destinations" description="All Destinations" imageLink = {"/img/banner/bradcam2.png"}/>
-            {!this.state.isLoading ? <AllDestinationsComponent data ={this.state.data}/> : loadingDiv }
+            <PageHeader title="All Places" description="All Places" imageLink = {"/img/banner/bradcam2.png"}/>
+            {!this.state.isLoading ? <AllPlacesComponent data ={this.state.data}/> : loadingDiv }
         </div>
     );
   }
 }
 
-export default AllDestinations;
+export default AllPlaces;
