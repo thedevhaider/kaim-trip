@@ -54,14 +54,14 @@ router.post(
             // Upload image to s3 and set the url
             const bannerPromise = uploader.upload(
               uploader.base64ToFile(req.body.banner),
-              keys.s3RootDestinationFolder,
+              keys.s3RootPlaceFolder,
               req.body.name,
               constants.bannerImage
             );
 
             const thumbnailPromise = uploader.upload(
               uploader.base64ToFile(req.body.thumbnail),
-              keys.s3RootDestinationFolder,
+              keys.s3RootPlaceFolder,
               req.body.name,
               constants.thumbnailImage
             );
@@ -75,9 +75,24 @@ router.post(
                 imagePromises.push(
                   uploader.upload(
                     uploader.base64ToFile(image),
-                    keys.s3RootDestinationFolder,
+                    keys.s3RootPlaceFolder,
                     req.body.name,
                     constants.galleryImage
+                  )
+                );
+              });
+            }
+
+            // Iterate over schedule array
+            const schedule = req.body.schedule;
+            if (schedule && schedule.length > 0) {
+              schedule.map((day) => {
+                imagePromises.push(
+                  uploader.upload(
+                    uploader.base64ToFile(day.image),
+                    keys.s3RootPlaceFolder,
+                    req.body.name,
+                    constants.activityImage
                   )
                 );
               });
@@ -97,10 +112,21 @@ router.post(
                 if (req.body.duration) placeField.duration = req.body.duration;
                 if (req.body.rating) placeField.rating = req.body.rating;
                 if (req.body.budget) placeField.budget = req.body.budget;
-                if (images && images.length > 0)
-                  placeField.images = imagePromisesRes.slice(2);
+                if (images && images.length > 0) {
+                  if (req.body.schedule && req.body.schedule.length > 0) {
+                    placeField.images = imagePromisesRes.slice(
+                      2,
+                      -req.body.schedule.length
+                    );
+                  } else {
+                    placeField.images = imagePromisesRes.slice(2);
+                  }
+                }
+
                 if (req.body.schedule && req.body.schedule.length > 0)
-                  placeField.schedule = req.body.schedule;
+                  placeField.schedule = imagePromisesRes.slice(
+                    -req.body.schedule.length
+                  );
 
                 new Place(placeField)
                   .save()
