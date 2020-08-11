@@ -172,4 +172,25 @@ router.get("/popular", (req, res) => {
     );
 });
 
+// @route   GET api/destinations/:destination_id
+// @desc    Get Destination by ID
+// @access  Public
+router.get("/:destination_id", (req, res) => {
+  Destination.findById({ _id: req.params.destination_id })
+    .then((destination) => {
+      if (!destination) {
+        return res.json({
+          error: `Destination with id '${req.params.destination_id}' does not exists`,
+        });
+      }
+
+      res.json(destination);
+    })
+    .catch((err) =>
+      res.status(400).json({
+        error: `Destination with id '${req.params.destination_id}' does not exists`,
+      })
+    );
+});
+
 module.exports = router;
