@@ -150,19 +150,23 @@ router.post(
 // @routes     GET api/places/
 // @desc       List Places
 // @access     Public
-router.get("/", (req, res) => {
-  // Offsets for Pagination
-  const skip = req.query.skip ? Number(req.query.skip) : 0;
-  const limit = req.query.limit ? Number(req.query.limit) : 10;
+router.get(
+  "/",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    // Offsets for Pagination
+    const skip = req.query.skip ? Number(req.query.skip) : 0;
+    const limit = req.query.limit ? Number(req.query.limit) : 10;
 
-  // Query Places
-  Place.find({}, {}, { skip: skip, limit: limit })
-    .sort("-createdAt")
-    .then((places) => res.json(places))
-    .catch((err) =>
-      res.status(400).json({ error: "Could not able to list Places" })
-    );
-});
+    // Query Places
+    Place.find({}, {}, { skip: skip, limit: limit })
+      .sort("-createdAt")
+      .then((places) => res.json(places))
+      .catch((err) =>
+        res.status(400).json({ error: "Could not able to list Places" })
+      );
+  }
+);
 
 // @route   DELETE api/places/:place_id
 // @desc    Delete Place
@@ -185,5 +189,26 @@ router.delete(
       );
   }
 );
+
+// @route   GET api/places/:place_id
+// @desc    Get Place by ID
+// @access  Public
+router.get("/:place_id", (req, res) => {
+  Place.findById({ _id: req.params.place_id })
+    .populate("destination")
+    .then((place) => {
+      if (!place) {
+        return res.status(400).json({
+          error: `Place with id '${req.params.place_id}' does not exists`,
+        });
+      }
+      res.json(place);
+    })
+    .catch((err) =>
+      res.status(400).json({
+        error: `Place with id '${req.params.place_id}' does not exists`,
+      })
+    );
+});
 
 module.exports = router;
