@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SinglePlaceDiv from "../others/SinglePlaceDiv";
 
-class DestinationPlaces extends Component {
+class MorePlaces extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -30,7 +30,7 @@ class DestinationPlaces extends Component {
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div className="section_title text-center mb_70">
-                  <h3>All Places to Visit in {data.name}</h3>
+                  <h3>More Places</h3>
                 </div>
               </div>
             </div>
@@ -43,4 +43,4 @@ class DestinationPlaces extends Component {
   }
 }
 
-export default DestinationPlaces;
+export default MorePlaces;

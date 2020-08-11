@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {contactForm} from "../utils/data";
 import PageHeader from '../components/others/PageHeader';
+import { Helmet } from "react-helmet";
 
 class Contact extends Component {
     state = {
@@ -28,6 +29,10 @@ class Contact extends Component {
   render() {
     return (
         <div>
+          <Helmet>
+          <title>Contact Us | Kaim Trip</title>
+          <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
+        </Helmet>
         <PageHeader title="Contact Us" description="Pixel perfect design with awesome contents" imageLink = {"/img/banner/bradcam4.png"}/>
         <section className="contact-section">
           <div className="container">

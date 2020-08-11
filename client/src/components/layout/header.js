@@ -34,19 +34,9 @@ class Header extends Component {
                             </a>
                           </li>
                           <li>
-                            <a href="/">
-                              pages <i className="ti-angle-down" />
+                            <a href="/places">
+                              Places
                             </a>
-                            <ul className="submenu">
-                              <li>
-                                <a href="destination_details">
-                                  Destinations details
-                                </a>
-                              </li>
-                              <li>
-                                <a href="elements">elements</a>
-                              </li>
-                            </ul>
                           </li>
                           <li>
                             <a href="/contact">Contact</a>
