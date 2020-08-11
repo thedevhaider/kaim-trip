@@ -19,12 +19,6 @@ const DestinationSchema = new Schema(
       type: String,
       required: true,
     },
-    places: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: "places",
-      },
-    ],
     thumbnail: {
       type: String,
       required: true,
@@ -33,6 +27,12 @@ const DestinationSchema = new Schema(
       type: String,
       required: true,
     },
+    places: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "places",
+      },
+    ],
   },
   { timestamps: true }
 );
