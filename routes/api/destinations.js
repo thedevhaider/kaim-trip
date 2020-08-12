@@ -165,7 +165,7 @@ router.get("/popular", (req, res) => {
 
   // Query Destinations
   Destination.find({}, {}, { skip: skip, limit: limit })
-    .populate({ path: "places" })
+    .populate("places")
     .then((destinations) => res.json(destinations))
     .catch((err) =>
       res.status(400).json({ error: "Could not able to list Destinations" })
