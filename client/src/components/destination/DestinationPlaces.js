@@ -20,9 +20,9 @@ class DestinationPlaces extends Component {
           );
         })
       ) : (
-        <div>
-          You have no data yet
-        </div>
+        <div key="1" className="col-lg-4 col-md-6">
+          No Places to Visit.Please Check Later
+      </div>
       );
     return (
         <div id="places" className="popular_places_area">

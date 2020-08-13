@@ -16,7 +16,7 @@ const app = express();
 
 var cors = require('cors')
 
-app.use(cors()); // Use this after the variable declaration
+app.use(cors({origin: '*'}));
 
 //Adding middlerware to express app
 app.use(

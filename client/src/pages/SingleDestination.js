@@ -19,8 +19,10 @@ class Destination extends Component {
     .then((responseJson) => {
       this.setState({ destinationsData : responseJson,isLoadingDestination:false })
     })
-    .catch((error) => {
-      console.error(error);
+    .catch((err) => {
+      const error = (err.response && err.response.data) || err.message;
+      console.log(error);
+      this.props.history.push("/404");
     });
   }
   render() {

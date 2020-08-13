@@ -14,7 +14,7 @@ class AllDestinations extends Component {
         destinationsData : [],
         isLoadingDestination:true,
         skip:0,
-        limit:1,
+        limit:10,
         hasMore:true
       };
     this.getNextDestinations = this.getNextDestinations.bind(this)
@@ -63,13 +63,13 @@ class AllDestinations extends Component {
                   src={not.thumbnail}
                   alt=""
                 />
-                <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}`} className="blog_item_date">
+                <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}`} className="blog_item_date">
                   <h3>{not.places.length}</h3>
                   <p>Places</p>
                 </a>
               </div>
               <div className="blog_details">
-                <a className="d-inline-block" href={`/destination/${not._id.toLowerCase().replace(/\s/g, "-")}`}>
+              <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}`}>
                   <h2>{not.name} ({not.state})</h2>
                 </a>
                 <p>
