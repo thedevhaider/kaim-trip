@@ -1,16 +1,23 @@
 import React, { Component } from "react";
 
 class SinglePlaceDiv extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      PlaceData: this.props.data,
+    };
+  }
   render() {
+    const {PlaceData} = this.state
     return (
         <div className="single_place">
                   <div className="thumb">
-                    <img src="/img/place/1.png" alt="" />
-                    <a href="/" className="prise">$500</a>
+                    <img src={PlaceData.thumbnail} alt="" />
+                    <a href="/" className="prise">Rs. {PlaceData.budget}</a>
                   </div>
                   <div className="place_info">
-                    <a href={`/${this.props.data.name}/${this.props.data.name}`}><h3>{this.props.data.name}</h3></a>
-                    <p>{this.props.data.name}</p>
+                    <a href={`/${PlaceData.name}/${PlaceData.name}`}><h3>{PlaceData.name}</h3></a>
+                    <p>{PlaceData.name}</p>
                     <div className="rating_days d-flex justify-content-between">
                       <span className="d-flex justify-content-center align-items-center">
                         <i className="fa fa-star" />
@@ -21,7 +28,7 @@ class SinglePlaceDiv extends Component {
                       </span>
                       <div className="days">
                         <i className="fa fa-clock-o" />
-                        <a href="/">{this.props.data.id} Days</a>
+                        <a href="/">{PlaceData.duration} Days</a>
                       </div>
                     </div>
                   </div>

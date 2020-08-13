@@ -6,23 +6,29 @@ import VideoTestimonial from '../components/index/VideoTestimonial';
 import PopularPlaces from '../components/index/PopularPlaces';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
+import {getDestinations,getPlaces} from '../utils/data';
 
 class Index extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        data : null,
-        isLoading:true
+        placesData : null,
+        isLoadingDestination:true,
+        isLoadingPlace:true,
+        destinationsData:null
       };
     }
-      componentWillMount() {
-         this.renderMyData();
-      }
-      renderMyData(){
-        fetch('https://picsum.photos/v2/list?limit=10')
-        .then((response) => response.json())
+      componentDidMount() {
+         getDestinations(0,6)
         .then((responseJson) => {
-          this.setState({ data : responseJson,isLoading:false })
+          this.setState({ destinationsData : responseJson,isLoadingDestination:false })
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+        getPlaces(0,6)
+        .then((responseJson) => {
+          this.setState({ placesData : responseJson,isLoadingPlace:false })
         })
         .catch((error) => {
           console.error(error);
@@ -48,8 +54,8 @@ class Index extends Component {
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
             <Slider/>
-            {!this.state.isLoading ? <PopularDestinations data ={this.state.data}/> : loadingDiv }
-            {!this.state.isLoading ? <PopularPlaces data ={this.state.data}/> : loadingDiv }
+            {!this.state.isLoadingDestination ? <PopularDestinations data ={this.state.destinationsData}/> : loadingDiv }
+            {!this.state.isLoadingPlace ? <PopularPlaces data ={this.state.placesData}/> : loadingDiv }
             <VideoTestimonial/>
         </div>
     );

@@ -14,7 +14,7 @@ class PopularPlaces extends Component {
       data && data.length > 0 ? (
         data.map((not) => {
           return (
-            <div key={not.id} className="col-lg-4 col-md-6">
+            <div key={not._id} className="col-lg-4 col-md-6">
                 <SinglePlaceDiv data={not}/>
             </div>
           );

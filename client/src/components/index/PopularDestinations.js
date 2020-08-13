@@ -9,18 +9,18 @@ class PopularDestinations extends Component {
       }
   render() {
       var {data} = this.state;
-      let notificationsMarkup =
+      let PopularDestinationsMarkup =
       data && data.length > 0 ? (
         data.map((not) => {
           return (
-            <div key={not.id} className="col-lg-4 col-md-6">
+            <div key={not._id} className="col-lg-4 col-md-6">
               <div className="single_destination">
                 <div className="thumb">
-                  <img src="https://loremflickr.com/cache/resized/65535_50105863426_d998931175_320_240_nofilter.jpg" alt="{not.author}" />
+                  <img src={not.thumbnail} alt={not.name} />
                 </div>
                 <div className="content">
                   <p className="d-flex align-items-center">
-                   {not.author} <a href={`/destination/${not.author.toLowerCase().replace(/\s/g, "-")}`}> {not.id} Places</a>{" "}
+                   {not.name} <a href={`/destination/${not._id.toLowerCase().replace(/\s/g, "-")}`}> {not.places.length} Places</a>{" "}
                   </p>
                 </div>
               </div>
@@ -47,7 +47,7 @@ class PopularDestinations extends Component {
             </div>
           </div>
           <div className="row">
-          {notificationsMarkup}
+          {PopularDestinationsMarkup}
           </div>
           <div className="row">
           <div className="col-lg-12">

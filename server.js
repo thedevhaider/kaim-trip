@@ -14,6 +14,10 @@ const createAdminUser = require("./boot/admin");
 
 const app = express();
 
+var cors = require('cors')
+
+app.use(cors()); // Use this after the variable declaration
+
 //Adding middlerware to express app
 app.use(
   bodyParser.urlencoded({
