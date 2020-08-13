@@ -8,7 +8,7 @@ class SinglePlaceDiv extends Component {
     };
   }
   render() {
-    const {PlaceData} = this.state
+    const {PlaceData} = this.state;
     return (
         <div className="single_place">
                   <div className="thumb">
@@ -17,7 +17,7 @@ class SinglePlaceDiv extends Component {
                   </div>
                   <div className="place_info">
                     <a href={`/${PlaceData.name}/${PlaceData.name}`}><h3>{PlaceData.name}</h3></a>
-                    <p>{PlaceData.name}</p>
+                    <p>{PlaceData.tagline}</p>
                     <div className="rating_days d-flex justify-content-between">
                       <span className="d-flex justify-content-center align-items-center">
                         <i className="fa fa-star" />

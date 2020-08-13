@@ -4,29 +4,28 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner'
 import AllPlacesComponent from '../components/others/AllPlaces';
 import PageHeader from '../components/others/PageHeader';
+import {getPlaces} from '../utils/data';
+
 
 class AllPlaces extends Component {
   constructor(props) {
-      super(props);
-      this.state = {
-        data : null,
-        isLoading:true
-      };
+    super(props);
+    this.state = {
+      placesData : null,
+      isLoadingplace:true
+    };
+  }
+    componentWillMount() {
+      getPlaces(0,6)
+      .then((responseJson) => {
+        this.setState({ placesData : responseJson,isLoadingplace:false })
+      })
+      .catch((error) => {
+        console.error(error);
+      });
     }
-      componentWillMount() {
-         this.renderMyData();
-      }
-      renderMyData(){
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then((response) => response.json())
-        .then((responseJson) => {
-          this.setState({ data : responseJson,isLoading:false })
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-      }
   render() {
+    var {placesData} = this.state;
     let loadingDiv =
     <div
       style={{
@@ -45,8 +44,8 @@ class AllPlaces extends Component {
               <title>All Places to Visit | Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-            <PageHeader title="All Places" description="All Places" imageLink = {"/img/banner/bradcam2.png"}/>
-            {!this.state.isLoading ? <AllPlacesComponent data ={this.state.data}/> : loadingDiv }
+            <PageHeader name="All Places" tagline="All Places" banner = {"/img/banner/bradcam2.png"}/>
+            {!this.state.isLoadingplace ? <AllPlacesComponent data ={placesData}/> : loadingDiv }
         </div>
     );
   }

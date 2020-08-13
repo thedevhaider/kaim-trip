@@ -39,7 +39,27 @@ class Destination extends Component {
      var {isLoadingDestination,destinationsData} = this.state;
     return (
         <div>
+            {!isLoadingDestination ?
+              <Helmet>
+                <title>{destinationsData.name} | {destinationsData.tagline}  by Kaim Trip</title>
+                <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
+              </Helmet>
+            : '' }
             {!isLoadingDestination ? <PageHeader tagline ={destinationsData.tagline} name ={destinationsData.name} banner ={destinationsData.banner}  /> : loadingDiv }
+            {!isLoadingDestination ?
+                <div className="destination_details_info">
+                <div className="container">
+                  <div className="row justify-content-center">
+                    <div className="col-lg-8 col-md-9">
+                      <div className="destination_info">
+                        <h3>About {destinationsData.name}</h3>
+                        <p>{destinationsData.description}</p>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            : '' }
             {!isLoadingDestination ? <DestinationPlaces data ={destinationsData}/> : loadingDiv }
         </div>
     );

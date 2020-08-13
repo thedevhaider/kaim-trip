@@ -22,6 +22,7 @@ router.post("/", (req, res) => {
   const { isValid, errors } = validateContactInput(req.body);
 
   if (!isValid) {
+    console.log(errors);
     return res.status(400).json(errors);
   }
 
@@ -35,6 +36,7 @@ router.post("/", (req, res) => {
   new Contact(contactFields)
     .save()
     .then((contact) => {
+      console.log(contact);
       const transport = nodemailer.createTransport({
         host: "smtp.mailtrap.io",
         port: 2525,
