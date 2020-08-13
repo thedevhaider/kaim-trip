@@ -17,20 +17,20 @@ class AllDestinations extends Component {
               <div className="blog_item_img">
                 <img
                   className="card-img rounded-0"
-                  src="img/blog/single_blog_1.png"
+                  src={not.thumbnail}
                   alt=""
                 />
                 <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}`} className="blog_item_date">
-                  <h3>{not.id}</h3>
+                  <h3>{not.places.length}</h3>
                   <p>Places</p>
                 </a>
               </div>
               <div className="blog_details">
-                <a className="d-inline-block" href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}`}>
-                  <h2>{not.name}</h2>
+                <a className="d-inline-block" href={`/destination/${not._id.toLowerCase().replace(/\s/g, "-")}`}>
+                  <h2>{not.name} ({not.state})</h2>
                 </a>
                 <p>
-                  {not.username}
+                  {not.description.replace(/^(.{120}[^\s]*).*/, "$1")}....
                 </p>
               </div>
             </article>

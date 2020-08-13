@@ -4,23 +4,25 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner'
 import AllDestinationsComponent from '../components/others/AllDestinations';
 import PageHeader from '../components/others/PageHeader';
+import {getDestinations} from '../utils/data';
 
 class AllDestinations extends Component {
   constructor(props) {
       super(props);
       this.state = {
-        data : null,
-        isLoading:true
+        destinationsData : null,
+        isLoadingDestination:true,
+        skip:0,
+        limit:10
       };
     }
       componentWillMount() {
-         this.renderMyData();
+        this.getResponse();
       }
-      renderMyData(){
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then((response) => response.json())
+      getResponse = function() {
+        getDestinations(this.state.skip,this.state.limit)
         .then((responseJson) => {
-          this.setState({ data : responseJson,isLoading:false })
+          this.setState({ destinationsData : responseJson,isLoadingDestination:false })
         })
         .catch((error) => {
           console.error(error);
@@ -45,8 +47,8 @@ class AllDestinations extends Component {
               <title>All Destinations to Visit | Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-            <PageHeader title="All Destinations" description="All Destinations" imageLink = {"/img/banner/bradcam2.png"}/>
-            {!this.state.isLoading ? <AllDestinationsComponent data ={this.state.data}/> : loadingDiv }
+            <PageHeader name="All Destinations" tagline="All Destinations" banner = {"/img/banner/bradcam2.png"}/>
+            {!this.state.isLoadingDestination ? <AllDestinationsComponent data ={this.state.destinationsData}/> : loadingDiv }
         </div>
     );
   }

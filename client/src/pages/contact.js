@@ -9,20 +9,22 @@ class Contact extends Component {
         name: "",
         subject: "",
         email:"",
-        contactNumber: ""
+        number: ""
       };
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
     };
     handleSubmit = event => {
-        const { name, email, message,subject,contactNumber } = this.state;
+        const { name, email, message,subject,number } = this.state;
         event.preventDefault();
-        const user = { name, email, message,subject,contactNumber };
+        const user = { name, email, message,subject,number };
         contactForm(user)
         .then((data)=>{
           alert("Contact form Submmited");
         })
         .catch((err)=>{
+          const error = (err.response && err.response.data) || err.message;
+          console.log(error);
           alert("Error,Please try Again Later!!");
         })
       };
@@ -33,7 +35,7 @@ class Contact extends Component {
           <title>Contact Us | Kaim Trip</title>
           <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
         </Helmet>
-        <PageHeader title="Contact Us" description="Pixel perfect design with awesome contents" imageLink = {"/img/banner/bradcam4.png"}/>
+        <PageHeader name="Contact Us" tagline="To get the Quotes and Travelling Plan. Contact US." banner = {"/img/banner/bradcam4.png"}/>
         <section className="contact-section">
           <div className="container">
             <div className="row">
@@ -51,7 +53,7 @@ class Contact extends Component {
                     </div>
                     <div className="col-sm-6">
                         <div className="form-group">
-                        <input className="form-control valid" name="phoneno" id="number" type="number"
+                        <input className="form-control valid" name="number" id="number" type="text"
                         required onChange={this.handleChange} placeholder="Enter your Contact Number" />
                         </div>
                      </div>
