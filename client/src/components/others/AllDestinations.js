@@ -9,6 +9,7 @@ class AllDestinations extends Component {
   }
   render() {
     var { data } = this.state;
+    console.log(data.length)
     let dataMarkup =
       data && data.length > 0 ? (
         data.map((not) => {

@@ -126,12 +126,7 @@ router.get(
     // Query Destinations
     Destination.find({}, {}, { skip: skip, limit: limit })
       .sort("-createdAt")
-      .then((destinations) => {
-        for(var i=0;i<100;i++)
-          destinations.push(destinations[0]);
-        destinations = destinations.slice(skip,limit);
-        res.json(destinations);
-      })
+      .then((destinations) => res.json(destinations))
       .catch((err) =>
         res.status(400).json({ error: "Could not able to list Destinations" })
       );
