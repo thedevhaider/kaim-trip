@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import DestinationPlaces from '../components/destination/DestinationPlaces';
 import PageHeader from '../components/others/PageHeader';
-import {getDestinationDetails} from '../utils/data';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 import Loader from 'react-loader-spinner'
+import {getDestinationDetails} from '../utils/data';
 
 class Destination extends Component {
   constructor(props) {
@@ -19,8 +19,10 @@ class Destination extends Component {
     .then((responseJson) => {
       this.setState({ destinationsData : responseJson,isLoadingDestination:false })
     })
-    .catch((error) => {
-      console.error(error);
+    .catch((err) => {
+      const error = (err.response && err.response.data) || err.message;
+      console.log(error);
+      this.props.history.push("/404");
     });
   }
   render() {

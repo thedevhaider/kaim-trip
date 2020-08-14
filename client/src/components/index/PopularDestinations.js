@@ -20,7 +20,7 @@ class PopularDestinations extends Component {
                 </div>
                 <div className="content">
                   <p className="d-flex align-items-center">
-                   {not.name} <a href={`/destination/${not._id.toLowerCase().replace(/\s/g, "-")}`}> {not.places.length} Places</a>{" "}
+                   {not.name} <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}`}> {not.places.length} Places</a>{" "}
                   </p>
                 </div>
               </div>

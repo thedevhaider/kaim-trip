@@ -2,30 +2,71 @@ import React, { Component } from "react";
 import { Helmet } from "react-helmet";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner'
-import AllPlacesComponent from '../components/others/AllPlaces';
 import PageHeader from '../components/others/PageHeader';
 import {getPlaces} from '../utils/data';
-
+import InfinitScroll from 'react-infinite-scroll-component';
+import SinglePlaceDiv from "../components/others/SinglePlaceDiv";
 
 class AllPlaces extends Component {
   constructor(props) {
-    super(props);
-    this.state = {
-      placesData : null,
-      isLoadingplace:true
-    };
-  }
-    componentWillMount() {
-      getPlaces(0,6)
-      .then((responseJson) => {
-        this.setState({ placesData : responseJson,isLoadingplace:false })
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+      super(props);
+      // Set Default state
+      this.state = {
+        placesData : [],
+        isLoadingDestination:true,
+        skip:0,
+        limit:10,
+        hasMore:true
+      };
+    this.getNextplaces = this.getNextplaces.bind(this)
     }
+    componentDidMount() {
+      // Get Initial places.
+        getPlaces(this.state.skip,this.state.limit)
+        .then((responseJson) => {
+          this.setState({ placesData : responseJson,isLoadingDestination:false })
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      }
+      // Update the places.
+      componentDidUpdate(prevProps, prevState) {
+        if (prevState.placesData.length !== this.state.placesData.length) {
+          this.setState({
+            placesData: this.state.placesData
+          })
+        }
+      }
+      // Get Next places while Scrolling.
+      getNextplaces(){
+        this.setState({skip: this.state.skip + this.state.limit})
+        getPlaces(this.state.skip,this.state.limit)
+        .then((responseJson) => {
+          if(responseJson.length === 0 )
+            this.setState({hasMore:false})
+          this.setState({ placesData : this.state.placesData.concat(responseJson),isLoadingDestination:false })
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+      }
   render() {
-    var {placesData} = this.state;
+    var { placesData } = this.state;
+    let placesDataMarkup =
+      placesData && placesData && placesData.length > 0 ? (
+        placesData.map((not) => {
+          return (
+            <div key={not.id} className="col-lg-4 col-md-6">
+              <SinglePlaceDiv data={not}/>
+            </div>
+          );
+        })
+      ) : (
+        <div>
+        No Places to Visit.Please Check Later
+        </div>
+      );
     let loadingDiv =
     <div
       style={{
@@ -41,11 +82,32 @@ class AllPlaces extends Component {
     return (
         <div>
             <Helmet>
-              <title>All Places to Visit | Kaim Trip</title>
+              <title>All places to Visit | Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-            <PageHeader name="All Places" tagline="All Places" banner = {"/img/banner/bradcam2.png"}/>
-            {!this.state.isLoadingplace ? <AllPlacesComponent data ={placesData}/> : loadingDiv }
+            {
+              // Set the Page Header
+            }
+            <PageHeader name="All places" tagline="All places" banner = {"/img/banner/bradcam2.png"}/>
+            {!this.state.isLoadingDestination ?
+                  <InfinitScroll
+                  dataLength = {this.state.placesData.length}
+                  next = {this.getNextplaces}
+                  hasMore = {this.state.hasMore}
+                  loader={loadingDiv}
+                >
+                <div id="places" className="popular_places_area">
+                  <div className="container">
+                    <div className="row justify-content-center">
+                    </div>
+                    <div className="row">
+                      {placesDataMarkup}
+                    </div>
+                  </div>
+                </div>
+                </InfinitScroll>
+            : loadingDiv }
+
         </div>
     );
   }

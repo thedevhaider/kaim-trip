@@ -13,7 +13,7 @@ class About extends Component {
               <title>About Us | Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-          <PageHeader title="About Us" description={description} imageLink = {"/img/banner/bradcam3.png"}/>
+          <PageHeader name="About Us" tagline={description} banner = {"/img/banner/bradcam3.png"}/>
           <div className="about_story">
           <div className="container">
             <div className="row">

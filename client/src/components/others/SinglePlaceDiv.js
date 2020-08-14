@@ -16,7 +16,7 @@ class SinglePlaceDiv extends Component {
                     <a href="/" className="prise">Rs. {PlaceData.budget}</a>
                   </div>
                   <div className="place_info">
-                    <a href={`/${PlaceData.name}/${PlaceData.name}`}><h3>{PlaceData.name}</h3></a>
+                    <a href={`/place/${PlaceData.name.toLowerCase().replace(/\s/g, "-")}-${PlaceData.tagline.toLowerCase().replace(/\s/g, "-")}/${PlaceData._id}`}><h3>{PlaceData.name}</h3></a>
                     <p>{PlaceData.tagline}</p>
                     <div className="rating_days d-flex justify-content-between">
                       <span className="d-flex justify-content-center align-items-center">
