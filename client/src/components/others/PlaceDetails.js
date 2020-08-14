@@ -10,8 +10,8 @@ class DestinationDetails extends Component {
   render() {
     var {data} = this.state;
       let daysMarkup =
-      data && data.dateData && data.dateData.length > 0 ? (
-        data.dateData.map((day,index) => {
+      data && data.schedule && data.schedule.length > 0 ? (
+        data.schedule.map((day,index) => {
           if(index%2 === 0)
           {
             return (
@@ -20,11 +20,11 @@ class DestinationDetails extends Component {
                 <h3 className="mb-30">{`Day ${index+1}`}</h3>
                 <div className="row">
                   <div className="col-md-3">
-                    <img src={day.image} alt="" className="img-fluid" />
+                    <img src={day} alt="" className="img-fluid" />
                   </div>
                   <div className="col-md-9 mt-sm-20">
                     <p>
-                      {day.description}
+                      {data.description}
                     </p>
                   </div>
                 </div>
@@ -40,11 +40,11 @@ class DestinationDetails extends Component {
                 <div className="row">
                   <div className="col-md-9 mt-sm-20">
                     <p>
-                      {day.description}
+                      {data.description}
                     </p>
                   </div>
                   <div className="col-md-3">
-                    <img src={day.image} alt="" className="img-fluid" />
+                    <img src={day} alt="" className="img-fluid" />
                   </div>
                 </div>
               </div>
@@ -65,8 +65,13 @@ class DestinationDetails extends Component {
               <div className="destination_info">
                 <h3>Description</h3>
                 <p>
-                  {this.state.data.description}
+                  {data.description}
                 </p>
+                <h3>Max Budget*</h3>
+                <p>
+                  {data.budget}
+                </p>
+                <h3>Total Duration of Journey {data.duration}</h3>
                 {daysMarkup}
               </div>
             </div>

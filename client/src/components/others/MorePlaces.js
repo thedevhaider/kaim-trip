@@ -11,8 +11,8 @@ class MorePlaces extends Component {
   render() {
       var {data} = this.state;
       let dataMarkup =
-      data && data.placesData && data.placesData.length > 0 ? (
-        data.placesData.map((not) => {
+      data && data && data.length > 0 ? (
+        data.map((not) => {
           return (
             <div key={not.id} className="col-lg-4 col-md-6">
                 <SinglePlaceDiv data={not}/>
@@ -21,7 +21,7 @@ class MorePlaces extends Component {
         })
       ) : (
         <div>
-          You have no data yet
+        No Places to Visit.Please Check Later
         </div>
       );
     return (

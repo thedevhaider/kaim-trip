@@ -64,7 +64,7 @@ class AllPlaces extends Component {
         })
       ) : (
         <div>
-          You have no data yet
+        No Places to Visit.Please Check Later
         </div>
       );
     let loadingDiv =

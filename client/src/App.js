@@ -43,7 +43,7 @@ function App() {
                 <Route exact path="/destinations" component={AllDestinations} />
                 <Route exact path="/places" component={AllPlaces} />
                 <Route exact path="/destination/:description/:destination" component={SingleDestination} />
-                <Route exact path="/:destination/:place" component={SinglePlace} />
+                <Route exact path="/place/:description/:place" component={SinglePlace} />
                 <Route component={FourZeroFour} />
               </Switch>
           </Fragment>

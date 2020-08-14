@@ -48,3 +48,16 @@ export const getDestinationDetails = async(DestinationId) => {
               )
   return data;
 }
+export const getPlaceDetails = async(PlaceId) => {
+  var {data} = await axios.get(
+                `http://localhost:5000/api/places/${PlaceId}`,
+                {
+                  headers: {
+                        "Access-Control-Allow-Origin" : "*",
+                        "Content-type": "Application/json",
+                        "Authorization": `${Bearer_Token}`
+                      }
+                    }
+              )
+  return data;
+}
