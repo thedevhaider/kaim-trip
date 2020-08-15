@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactPlayer from 'react-player'
 
 class YoTube extends Component {
   render() {
@@ -9,10 +10,22 @@ class YoTube extends Component {
             <div className="col-lg-12">
               <div className="video_wrap text-center">
                 <h3>Enjoy Video</h3>
-                <div className="video_icon">
-                  <a className="popup-video video_play_button" href="https://www.youtube.com/watch?v=f59dDEk57i0">
-                    <i className="fa fa-play" />
-                  </a>
+                  <div className='player-wrapper'>
+                    <ReactPlayer
+                      url={this.props.videoLink}
+                      className='react-player'
+                      playing
+                      loop
+                      controls="false"
+                      width='100%'
+                      height='100%'
+                      pip="true"
+                      config={{
+                        youtube: {
+                          playerVars: { showinfo: 0 }
+                        }
+                      }}
+                    />
                 </div>
               </div>
             </div>

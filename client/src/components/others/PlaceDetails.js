@@ -78,7 +78,7 @@ class DestinationDetails extends Component {
             </div>
           </div>
         </div>
-        {data.youtube ? <Youtube/> : ''}
+        {data.youtube ? <Youtube videoLink = {data.youtube}/> : ''}
       </div>
     );
   }
