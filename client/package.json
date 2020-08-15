@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "axios": "^0.19.2",
+    "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-infinite-scroll-component": "^5.0.5",
     "react-loader-spinner": "^3.1.14",
+    "react-player": "^2.6.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "workbox-build": "^5.1.3"
