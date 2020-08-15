@@ -1,6 +1,35 @@
 import axios from "axios";
 
-var Bearer_Token = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJpZCI6IjVmMzQyMmZhM2M3NjI2MjM5N2Q5NWFiYyIsImlhdCI6MTU5NzI5OTI5NCwiZXhwIjoxNTk3Mzg1Njk0fQ.rXvbIYWK-eIGCUdOzLuIlbzI2sGwIYRm19wZ7T-dboQ"
+import jwtDecode from 'jwt-decode';
+
+let Bearer_Token;
+
+export const checkAndAddToken =async()=>{
+  if(!localStorage.getItem('Bearer_Token'))
+  {
+      var user={
+          "email": "admin@kaimtrip.com",
+          "password": "MZ@/d/305"
+      }
+    const {data} = await axios.post('http://localhost:5000/api/users/login',user);
+    Bearer_Token = data.token;
+    localStorage.setItem('Bearer_Token', data.token);
+  }
+  else{
+    var decoded = jwtDecode(localStorage.getItem('Bearer_Token').split(' ')[1]);
+    if (Date.now() >= decoded.exp * 1000) {
+      var user={
+        "email": "admin@kaimtrip.com",
+        "password": "MZ@/d/305"
+    }
+    const {data} = await axios.post('http://localhost:5000/api/users/login',user);
+    Bearer_Token = data.token;
+    }
+    else
+      Bearer_Token = localStorage.getItem('Bearer_Token');
+  }
+}
+
 
 export const contactForm = async(user) => {
     const { data } = await axios.post(`http://localhost:5000/api/contacts/`,user);
@@ -8,6 +37,7 @@ export const contactForm = async(user) => {
   }
 
 export const getDestinations = async(skip,limit) => {
+  await checkAndAddToken();
   var {data} = await axios.get(
                 `http://localhost:5000/api/destinations/?skip=${skip}&limit=${limit}`,
                 {
@@ -22,6 +52,7 @@ export const getDestinations = async(skip,limit) => {
 }
 
 export const getPlaces = async(skip,limit) => {
+  await checkAndAddToken();
   var {data} = await axios.get(
                 `http://localhost:5000/api/places/?skip=${skip}&limit=${limit}`,
                 {
@@ -36,6 +67,7 @@ export const getPlaces = async(skip,limit) => {
 }
 
 export const getDestinationDetails = async(DestinationId) => {
+  await checkAndAddToken();
   var {data} = await axios.get(
                 `http://localhost:5000/api/destinations/${DestinationId}`,
                 {
@@ -49,6 +81,7 @@ export const getDestinationDetails = async(DestinationId) => {
   return data;
 }
 export const getPlaceDetails = async(PlaceId) => {
+  await checkAndAddToken();
   var {data} = await axios.get(
                 `http://localhost:5000/api/places/${PlaceId}`,
                 {

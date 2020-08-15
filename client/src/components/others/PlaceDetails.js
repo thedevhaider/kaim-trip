@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Youtube from './YouTube';
 
 class DestinationDetails extends Component {
   constructor(props) {
@@ -77,6 +78,7 @@ class DestinationDetails extends Component {
             </div>
           </div>
         </div>
+        {data.youtube ? <Youtube/> : ''}
       </div>
     );
   }

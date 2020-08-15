@@ -1,32 +1,11 @@
 import React, { Component } from "react";
+import Youtube from '../others/YouTube';
 
 class VideoTestimonial extends Component {
   render() {
     return (
         <div>
-        <div className="video_area video_bg overlay">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="video_wrap text-center">
-                  <h3>Enjoy Video</h3>
-                  <div className="video_icon">
-                  <div
-                  className="video"
-                  style={{
-                    position: "relative",
-                    paddingBottom: "56.25%" /* 16:9 */,
-                    paddingTop: 25,
-                    height: 0
-                  }}
-                >
-                </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {this.props.videoLink ? <Youtube/> :''}
         <div className="travel_variation_area">
           <div className="container">
             <div className="row">
