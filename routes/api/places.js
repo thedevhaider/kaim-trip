@@ -190,6 +190,23 @@ router.delete(
   }
 );
 
+// @routes     GET api/places/popular
+// @desc       List Popular Places
+// @access     Public
+router.get("/popular", (req, res) => {
+  // Offsets for Pagination
+  const skip = req.query.skip ? Number(req.query.skip) : 0;
+  const limit = req.query.limit ? Number(req.query.limit) : 10;
+
+  // Query Places
+  Place.find({}, {}, { skip: skip, limit: limit })
+    .sort("-rating")
+    .then((places) => res.json(places))
+    .catch((err) =>
+      res.status(400).json({ error: "Could not able to list Places" })
+    );
+});
+
 // @route   GET api/places/:place_id
 // @desc    Get Place by ID
 // @access  Public

@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
   new Contact(contactFields)
     .save()
     .then((contact) => {
-      console.log(contact);
+      console.log("Saved Contact", contact);
       const transport = nodemailer.createTransport({
         host: "smtp.mailtrap.io",
         port: 2525,
@@ -48,14 +48,14 @@ router.post("/", (req, res) => {
       const message = {
         from: "elonmusk@tesla.com", // Sender address
         to: "mohdhaider30@gmail.com", // List of recipients
-        subject: "Design Your Model S | Tesla", // Subject line
-        text: "Have the most fun you can in a car. Get your Tesla today!", // Plain text body
+        subject: !req.body.subject ? "KaimTrip Query Forum" : req.body.subject, // Subject line
+        text: req.body.message, // Plain text body
       };
       transport.sendMail(message, (err, info) => {
         if (err) {
           console.log(err);
         } else {
-          console.log(info);
+          console.log("Response from Mail Service", info);
         }
       });
       res.status(201).json(contact);
