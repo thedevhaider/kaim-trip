@@ -27,6 +27,10 @@ const DestinationSchema = new Schema(
       type: String,
       required: true,
     },
+    places: [{
+      type: Schema.Types.ObjectId,
+      ref: "places"
+    }]
   },
   { timestamps: true }
 );
