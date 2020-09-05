@@ -73,7 +73,7 @@ class AllDestinations extends Component {
                   <h2>{not.name} ({not.state})</h2>
                 </a>
                 <p>
-                  {not.description.replace(/^(.{120}[^\s]*).*/, "$1")}....
+                  {not.tagline.replace(/^(.{120}[^\s]*).*/, "$1")}....
                 </p>
               </div>
             </article>

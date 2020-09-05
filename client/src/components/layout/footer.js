@@ -2,6 +2,27 @@ import React, { Component } from "react";
 
 class Footer extends Component {
   render() {
+    var { placesData } = this.props;
+    let popularDestinations =
+      placesData && placesData.length > 0 ? (
+        placesData.map((not) => {
+          return (
+            <fragment>
+              <li><a href="/">Indonesia</a></li>
+              <li><a href="/">America</a></li>
+              <li><a href="/">India</a></li>
+              <li><a href="/">Switzerland</a></li>
+              <li><a href="/">Italy</a></li>
+              <li><a href="/">Canada</a></li>
+              <li><a href="/">Franch</a></li>
+              <li><a href="/">England</a></li>
+            </fragment>
+          );
+        })
+      ) : (
+        <div>You have no data yet</div>
+      );
+
     return (
         <footer className="footer">
           <div className="footer_top">
@@ -63,14 +84,7 @@ class Footer extends Component {
                       Popular destination
                     </h3>
                     <ul className="links double_links">
-                      <li><a href="/">Indonesia</a></li>
-                      <li><a href="/">America</a></li>
-                      <li><a href="/">India</a></li>
-                      <li><a href="/">Switzerland</a></li>
-                      <li><a href="/">Italy</a></li>
-                      <li><a href="/">Canada</a></li>
-                      <li><a href="/">Franch</a></li>
-                      <li><a href="/">England</a></li>
+                       {popularDestinations}
                     </ul>
                   </div>
                 </div>

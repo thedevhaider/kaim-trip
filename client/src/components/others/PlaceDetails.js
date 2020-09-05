@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Youtube from './YouTube';
+import ImageGallery from './ImageGallery';
 
 class DestinationDetails extends Component {
   constructor(props) {
@@ -67,10 +68,6 @@ class DestinationDetails extends Component {
                 <h3>Description</h3>
                 <p>
                   {data.description}
-                </p>
-                <h3>Max Budget*</h3>
-                <p>
-                  {data.budget}
                 </p>
                 <h3>Total Duration of Journey {data.duration}</h3>
                 {daysMarkup}

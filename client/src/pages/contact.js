@@ -9,7 +9,8 @@ class Contact extends Component {
         name: "",
         subject: "",
         email:"",
-        number: ""
+        number: "",
+        errors:""
       };
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
@@ -24,11 +25,11 @@ class Contact extends Component {
         })
         .catch((err)=>{
           const error = (err.response && err.response.data) || err.message;
-          console.log(error);
-          alert("Error,Please try Again Later!!");
+          this.setState({errors:error});
         })
       };
   render() {
+    let {errors}=this.state
     return (
         <div>
           <Helmet>
@@ -48,31 +49,46 @@ class Contact extends Component {
                      <div className="col-sm-6">
                       <div className="form-group">
                         <input className="form-control valid" name="name" id="name" type="text"
-                        required onChange={this.handleChange} placeholder="Enter your name" />
+                        required onChange={this.handleChange} placeholder="Enter your name *" />
+                      </div>
+                      <div style={{color: "#FF0000"}} className="form-group">
+                        {errors.name?errors.name:''}
                       </div>
                     </div>
                     <div className="col-sm-6">
                         <div className="form-group">
                         <input className="form-control valid" name="number" id="number" type="text"
-                        required onChange={this.handleChange} placeholder="Enter your Contact Number" />
+                        required onChange={this.handleChange} placeholder="Enter Contact Number * EG +919569448252" />
+                        </div>
+                        <div style={{color: "#FF0000"}} className="form-group">
+                          {errors.number?errors.number:''}
                         </div>
                      </div>
                     <div className="col-sm-12">
                       <div className="form-group">
                         <input className="form-control valid" name="email" id="email" type="email"
-                        required onChange={this.handleChange} placeholder="Email" />
+                        required onChange={this.handleChange} placeholder="Enter your Email *" />
+                      </div>
+                      <div style={{color: "#FF0000"}} className="form-group">
+                        {errors.email?errors.email:''}
                       </div>
                     </div>
                     <div className="col-12">
                       <div className="form-group">
                         <input className="form-control" name="subject" id="subject" type="text"
-                        required onChange={this.handleChange} placeholder="Enter Subject" />
+                        required onChange={this.handleChange} placeholder="Enter Subject *" />
+                      </div>
+                      <div style={{color: "#FF0000"}} className="form-group">
+                        {errors.subject?errors.subject:''}
                       </div>
                     </div>
                     <div className="col-12">
                       <div className="form-group">
                         <textarea className="form-control w-100" name="message" id="message" cols={30} rows={9}
-                        required onChange={this.handleChange} placeholder=" Enter Message" />
+                        required onChange={this.handleChange} placeholder=" Enter Message *" />
+                      </div>
+                      <div style={{color: "#FF0000"}} className="form-group">
+                        {errors.message?errors.message:''}
                       </div>
                     </div>
                   </div>

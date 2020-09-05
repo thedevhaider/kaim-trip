@@ -14,17 +14,10 @@ class YoTube extends Component {
                     <ReactPlayer
                       url={this.props.videoLink}
                       className='react-player'
-                      playing
                       loop
                       controls="false"
                       width='100%'
                       height='100%'
-                      pip="true"
-                      config={{
-                        youtube: {
-                          playerVars: { showinfo: 0 }
-                        }
-                      }}
                     />
                 </div>
               </div>

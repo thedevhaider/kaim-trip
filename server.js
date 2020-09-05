@@ -28,7 +28,7 @@ app.use(
 app.use(bodyParser.json({ limit: "100mb" }));
 
 //Config Keys
-const db = keys.mongoURI;
+const db = `mongodb+srv://admin:Admin%40123user@cluster0.deve8.mongodb.net/kaimtrip?retryWrites=true&w=majority`;
 
 //Connect to MongoDB using Mongoose
 mongoose

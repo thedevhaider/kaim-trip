@@ -24,8 +24,6 @@ class place extends Component {
       this.setState({ singlePlaceData : responseJson,isLoadingplace:false })
     })
     .catch((err) => {
-      const error = (err.response && err.response.data) || err.message;
-      console.log(error);
       this.props.history.push("/404");
     });
     // Get MorePlaces to show.
@@ -61,7 +59,7 @@ class place extends Component {
           <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
         </Helmet>
         : '' }
-        {!isLoadingplace ? <PageHeader name={singlePlaceData.name} tagline={singlePlaceData.tagline} banner = {"/img/banner/bradcam2.png"}/> : loadingDiv }
+        {!isLoadingplace ? <PageHeader name={singlePlaceData.name} tagline={singlePlaceData.tagline} banner = {singlePlaceData.banner}/> : loadingDiv }
         {!isLoadingplace ? <PlaceDetails data={singlePlaceData}/> : loadingDiv }
         {!isLoadingMorePlace ? <MorePlaces  data ={moreplaceData}/> : loadingDiv }
         </div>
