@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const express = require("express");
+const keys = require("../../config/keys");
 
 const validateContactInput = require("../../validation/contact");
 const router = express.Router();
@@ -37,21 +38,25 @@ router.post("/", (req, res) => {
     .save()
     .then((contact) => {
       console.log("Saved Contact", contact);
-      const transport = nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 2525,
+
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
         auth: {
-          user: "9d598ba6a27ed5",
-          pass: "e4eccb8ef3ae62",
+          user: keys.emailSenderEmailId,
+          pass: keys.emailSenderPassword,
         },
       });
       const message = {
-        from: "elonmusk@tesla.com", // Sender address
-        to: "mohdhaider30@gmail.com", // List of recipients
+        from: req.body.email, // Sender address
+        to: keys.emailReceiver, // List of recipients
         subject: !req.body.subject ? "KaimTrip Query Forum" : req.body.subject, // Subject line
-        text: req.body.message, // Plain text body
+        html: ` <h2>Sender Details:</h2>
+                <b>Name</b> : ${req.body.name} <br> 
+                <b>Number</b> : ${req.body.number} <br> 
+                <b>Email</b> : ${req.body.email} <br> 
+                <b>Message</b> : ${req.body.message}`, // Plain text body
       };
-      transport.sendMail(message, (err, info) => {
+      transporter.sendMail(message, (err, info) => {
         if (err) {
           console.log(err);
         } else {
