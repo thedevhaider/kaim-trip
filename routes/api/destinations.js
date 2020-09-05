@@ -8,6 +8,7 @@ const router = express.Router();
 
 // Load the Destination model
 const Destination = require("../../models/Destination");
+const Place = require("../../models/Place");
 
 // @routes     GET api/destinations/healthcheck
 // @desc       Tests destinations routes
@@ -96,22 +97,6 @@ router.post(
   }
 );
 
-// @routes     PUT api/destinations/:destination_id
-// @desc       Update Destination
-// @access     Private
-router.put(
-  "/:destination_id",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    // Validate request
-    const { isValid, errors } = validateDestinationInput(req.body);
-
-    if (!isValid) {
-      res.status(400).json(errors);
-    }
-  }
-);
-
 // @routes     GET api/destinations/
 // @desc       List Destinations
 // @access     Private
@@ -141,7 +126,13 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Destination.findById({ _id: req.params.destination_id })
+      .populate("places")
       .then((destination) => {
+        destination.places.map((place) =>
+          Place.deleteOne({ _id: place }).catch((err) =>
+            console.log(`Place id ${place} not found for deleting`)
+          )
+        );
         destination.remove();
         res.json({
           message: `Destination with id '${req.params.destination_id}' successfuly deleted`,
@@ -165,7 +156,7 @@ router.get("/popular", (req, res) => {
 
   // Query Destinations
   Destination.find({}, {}, { skip: skip, limit: limit })
-    .populate("places")
+    .sort({ places: -1 })
     .then((destinations) => res.json(destinations))
     .catch((err) =>
       res.status(400).json({ error: "Could not able to list Destinations" })
@@ -177,6 +168,7 @@ router.get("/popular", (req, res) => {
 // @access  Public
 router.get("/:destination_id", (req, res) => {
   Destination.findById({ _id: req.params.destination_id })
+    .populate("places")
     .then((destination) => {
       if (!destination) {
         return res.json({

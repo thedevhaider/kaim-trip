@@ -130,7 +130,15 @@ router.post(
 
                 new Place(placeField)
                   .save()
-                  .then((place) => res.status(201).json(place))
+                  .then((place) => {
+                    Destination.findByIdAndUpdate(
+                      req.body.destination,
+                      { $push: { places: place._id } },
+                      { new: true, useFindAndModify: false }
+                    )
+                      .then(() => res.status(201).json(place))
+                      .catch((err) => res.status(400).json({ error: err }));
+                  })
                   .catch((err) => res.status(404).json({ error: err }));
               })
               .catch((err) => res.status(400).json({ error: err }));
@@ -176,7 +184,11 @@ router.delete(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     Place.findById({ _id: req.params.place_id })
+      .populate("destination")
       .then((place) => {
+        const places = place.destination.places;
+        places.splice(places.indexOf(place.destination._id), 1);
+        place.destination.save();
         place.remove();
         res.json({
           message: `Place with id '${req.params.place_id}' successfuly deleted`,
