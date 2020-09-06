@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
 class Slider extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data : this.props.data
+    };
+  }
   render() {
+    console.log(this.state.data)
     return (
         <div className="slider_area">
           <div className="slider_active owl-carousel">

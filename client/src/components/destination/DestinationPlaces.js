@@ -11,8 +11,8 @@ class DestinationPlaces extends Component {
   render() {
       var {data} = this.state;
       let dataMarkup =
-      data && data.placesData && data.placesData.length > 0 ? (
-        data.placesData.map((not) => {
+      data && data.places && data.places.length > 0 ? (
+        data.places.map((not) => {
           return (
             <div key={not.id} className="col-lg-4 col-md-6">
                 <SinglePlaceDiv data={not}/>
