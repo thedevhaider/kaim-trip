@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Youtube from './YouTube';
+import ImageGallery from './ImageGallery';
 
 class DestinationDetails extends Component {
   constructor(props) {
@@ -59,6 +60,7 @@ class DestinationDetails extends Component {
         </div>
       );
     return (
+      <fragment>
       <div className="destination_details_info">
         <div className="container">
           <div className="row justify-content-center">
@@ -68,18 +70,23 @@ class DestinationDetails extends Component {
                 <p>
                   {data.description}
                 </p>
-                <h3>Max Budget*</h3>
-                <p>
-                  {data.budget}
-                </p>
                 <h3>Total Duration of Journey {data.duration}</h3>
                 {daysMarkup}
               </div>
             </div>
           </div>
         </div>
-        {data.youtube ? <Youtube videoLink = {data.youtube}/> : ''}
+        {data.youtube ? <Youtube      videoLink = {data.youtube}/> : ''}
       </div>
+       <div className="whole-wrap">
+        <div className="container box_1170">
+          <div className="section-top-border">
+            <h3>Image Gallery</h3>
+            {data.images ?  <ImageGallery videoLink = {data.images}/> : ''}            
+          </div>
+        </div>
+      </div>
+      </fragment>
     );
   }
 }
