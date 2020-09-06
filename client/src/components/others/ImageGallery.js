@@ -40,7 +40,6 @@ class ImageGallery extends Component {
   render() {
     var {data} = this.state;
     const { photoIndex, isOpen } = this.state;
-    data.push('https://kaimtrip.s3.ap-south-1.amazonaws.com/undefined/gulmarg/6762494839951_activity.jpg');
     let dataMarkup =
     data && data.length > 0 ? (
       data.map((not) => {

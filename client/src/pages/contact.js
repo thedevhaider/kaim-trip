@@ -14,6 +14,7 @@ class Contact extends Component {
       };
     handleChange = event => {
         this.setState({ [event.target.name]: event.target.value });
+        this.setState({errors:{}});
     };
     handleSubmit = event => {
         const { name, email, message,subject,number } = this.state;
