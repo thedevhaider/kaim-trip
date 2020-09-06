@@ -9,7 +9,6 @@ class YoTube extends Component {
           <div className="row">
             <div className="col-lg-12">
               <div className="video_wrap text-center">
-                <h3>Enjoy Video</h3>
                   <div className='player-wrapper'>
                     <ReactPlayer
                       url={this.props.videoLink}

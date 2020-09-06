@@ -1294,21 +1294,6 @@ h3 {
   transform: translate(-50%, -50%);
 }
 
-/* line 1, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
-.slider_bg_1 {
-  background-image: url(/img/banner/banner.png);
-}
-
-/* line 4, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
-.slider_bg_2 {
-  background-image: url(/img/banner/banner2.png);
-}
-
-/* line 7, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
-.slider_bg_3 {
-  background-image: url(/img/banner/banner3.png);
-}
-
 /* line 10, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_slider.scss */
 .slider_area {
   position: relative;

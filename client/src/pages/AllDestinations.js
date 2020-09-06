@@ -63,7 +63,7 @@ class AllDestinations extends Component {
                   src={not.thumbnail}
                   alt=""
                 />
-                <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}`} className="blog_item_date">
+                <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}#places`} className="blog_item_date">
                   <h3>{not.places.length}</h3>
                   <p>Places</p>
                 </a>

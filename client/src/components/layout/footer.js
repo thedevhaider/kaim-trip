@@ -1,21 +1,30 @@
 import React, { Component } from "react";
+import {getDestinations} from '../../utils/data';
 
 class Footer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      destinationsData:null
+    };
+  }
+    componentDidMount() {
+       getDestinations(0,6)
+      .then((responseJson) => {
+        this.setState({ destinationsData : responseJson,isLoadingDestination:false })
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+    }
   render() {
-    var { placesData } = this.props;
+    var { destinationsData } = this.state;
     let popularDestinations =
-      placesData && placesData.length > 0 ? (
-        placesData.map((not) => {
+      destinationsData && destinationsData.length > 0 ? (
+        destinationsData.map((not) => {
           return (
             <fragment>
-              <li><a href="/">Indonesia</a></li>
-              <li><a href="/">America</a></li>
-              <li><a href="/">India</a></li>
-              <li><a href="/">Switzerland</a></li>
-              <li><a href="/">Italy</a></li>
-              <li><a href="/">Canada</a></li>
-              <li><a href="/">Franch</a></li>
-              <li><a href="/">England</a></li>
+              <li><a href="/">{not.name}</a></li>
             </fragment>
           );
         })
@@ -81,7 +90,7 @@ class Footer extends Component {
                 <div className="col-xl-3 col-md-6 col-lg-3">
                   <div className="footer_widget">
                     <h3 className="footer_title">
-                      Popular destination
+                      Popular Destinations
                     </h3>
                     <ul className="links double_links">
                        {popularDestinations}
@@ -97,31 +106,6 @@ class Footer extends Component {
                       <div className="single_insta">
                         <a href="/">
                           <img src="/img/instagram/1.png" alt="" />
-                        </a>
-                      </div>
-                      <div className="single_insta">
-                        <a href="/">
-                          <img src="/img/instagram/2.png" alt="" />
-                        </a>
-                      </div>
-                      <div className="single_insta">
-                        <a href="/">
-                          <img src="/img/instagram/3.png" alt="" />
-                        </a>
-                      </div>
-                      <div className="single_insta">
-                        <a href="/">
-                          <img src="/img/instagram/4.png" alt="" />
-                        </a>
-                      </div>
-                      <div className="single_insta">
-                        <a href="/">
-                          <img src="/img/instagram/5.png" alt="" />
-                        </a>
-                      </div>
-                      <div className="single_insta">
-                        <a href="/">
-                          <img src="/img/instagram/6.png" alt="" />
                         </a>
                       </div>
                     </div>
