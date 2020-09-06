@@ -70,7 +70,7 @@ class AllDestinations extends Component {
               </div>
               <div className="blog_details">
               <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}`}>
-                  <h2>{not.name} ({not.state})</h2>
+                  <h2>{not.name.charAt(0).toUpperCase() + not.name.slice(1)} ({not.state})</h2>
                 </a>
                 <p>
                   {not.tagline.replace(/^(.{120}[^\s]*).*/, "$1")}....
