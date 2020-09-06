@@ -60,6 +60,7 @@ class DestinationDetails extends Component {
         </div>
       );
     return (
+      <fragment>
       <div className="destination_details_info">
         <div className="container">
           <div className="row justify-content-center">
@@ -76,8 +77,16 @@ class DestinationDetails extends Component {
           </div>
         </div>
         {data.youtube ? <Youtube      videoLink = {data.youtube}/> : ''}
-        {data.images ?  <ImageGallery videoLink = {data.images}/> : ''}
       </div>
+       <div className="whole-wrap">
+        <div className="container box_1170">
+          <div className="section-top-border">
+            <h3>Image Gallery</h3>
+            {data.images ?  <ImageGallery videoLink = {data.images}/> : ''}            
+          </div>
+        </div>
+      </div>
+      </fragment>
     );
   }
 }

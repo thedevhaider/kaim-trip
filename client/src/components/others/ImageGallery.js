@@ -10,16 +10,28 @@ export default class ImageGallery extends Component {
       isOpen: false,
     };
   }
-
   render() {
     const { photoIndex, isOpen } = this.state;
     const images  = this.props.videoLink;
-    console.log(images)
-    return (
+    let dataMarkup =
+    images && images && images.length > 0 ? (
+      images.map((image,index) => {
+        return (
+            <div className="col-md-4">
+                <div onClick={() => this.setState({ isOpen: true,photoIndex:index })} className="single-gallery-image" style={{background: `url(${image})`}} />
+            </div>
+        );
+      })
+    ) : (
       <div>
-        <button type="button" onClick={() => this.setState({ isOpen: true })}>
-          Open Lightbox
-        </button>
+      No Places to Visit.Please Check Later
+      </div>
+    );
+    return (
+      <fragment>
+        <div className="row gallery-item">
+           {dataMarkup}
+        </div>
         {isOpen && (
           <Lightbox
             mainSrc={images[photoIndex]}
@@ -42,7 +54,7 @@ export default class ImageGallery extends Component {
             }
           />
         )}
-      </div>
+      </fragment>
     );
   }
 }
