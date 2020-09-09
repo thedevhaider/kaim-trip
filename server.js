@@ -28,7 +28,7 @@ app.use(
 app.use(bodyParser.json({ limit: "100mb" }));
 
 //Config Keys
-const db = `mongodb://admin:Admin%40123user@13.232.247.113:27017/kaimtrip`;
+const db = process.env.MONGO_URI;
 
 //Connect to MongoDB using Mongoose
 mongoose
