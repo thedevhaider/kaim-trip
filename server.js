@@ -18,6 +18,14 @@ var cors = require("cors");
 
 app.use(cors({ origin: "*" }));
 
+if(process.env.NODE_ENV === 'production')
+{
+    app.use(express.static('client/build'));
+    app.get('*',(req,res) =>{
+        res.sendFile(path.resolve(__dirname,'client','build','index.hmtl'));
+    })
+}
+
 //Adding middlerware to express app
 app.use(
   bodyParser.urlencoded({
@@ -28,7 +36,7 @@ app.use(
 app.use(bodyParser.json({ limit: "100mb" }));
 
 //Config Keys
-const db = process.env.MONGO_URI;
+const db = `mongodb://admin:Admin%40123user@13.232.247.113:27017/kaimtrip`;
 
 //Connect to MongoDB using Mongoose
 mongoose
