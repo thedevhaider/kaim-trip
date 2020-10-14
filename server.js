@@ -40,7 +40,7 @@ mongoose
   })
   .then(() => {
     console.log("> MongoDB connected");
-    // createAdminUser();
+    createAdminUser();
   })
   .catch((err) => console.log(err, "Error"));
 
