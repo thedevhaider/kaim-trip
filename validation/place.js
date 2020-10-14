@@ -48,11 +48,22 @@ module.exports = function validatePlaceInput(data) {
 
   if (Validator.isEmpty(data.destination)) {
     errors.destination = "Destination is required";
-  } else {
-    Destination.findById({ _id: data.destination }).catch(
-      (err) =>
-        (errors.destination = `Destination with id ${data.destination} does not exists`)
-    );
+  }
+
+  if (!isEmpty(data.youtube) && !Validator.isURL(data.youtube, { require_protocol: true })) {
+    errors.youtube = "Enter correct Youtube URL";
+  }
+
+  if (!isEmpty(data.duration) && data.duration <= 0) {
+    errors.duration = "Duration cannot be negative";
+  }
+
+  if (!isEmpty(data.rating) && (data.rating < 1 || data.rating > 5)) {
+    errors.rating = "Rating should be between 1 and 5 inclusively";
+  }
+
+  if (!isEmpty(data.budget) && data.budget <= 0) {
+    errors.budget = "Budget cannot be negative";
   }
 
   return {
