@@ -10,4 +10,7 @@ module.exports = {
   awsRegion: process.env.AWS_REGION,
   s3RootDestinationFolder: process.env.S3_ROOT_DESTINATION_FOLDER,
   s3RootPlaceFolder: process.env.S3_ROOT_PLACE_FOLDER,
+  emailSenderEmailId: process.env.EMAIL_SENDER_EMAILID,
+  emailSenderPassword: process.env.EMAIL_SENDER_PASSWORD,
+  emailReceiver: process.env.EMAIL_RECEIVER,
 };
