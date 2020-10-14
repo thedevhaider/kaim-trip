@@ -120,12 +120,6 @@ address {
     line-height: inherit
 }
 
-dl,
-ol,
-ul {
-    margin-top: 0;
-    margin-bottom: 1rem
-}
 
 ol ol,
 ol ul,
@@ -514,7 +508,30 @@ mark {
     max-width: 100%;
     height: auto
 }
-
+@media (min-width: 768px) and (max-width: 1024px) {
+    .img-fluid {
+        max-width: 100%;
+        height: auto
+    } 
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .img-fluid {
+        max-width: 100%;
+        height: auto
+    }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+ .img-fluid {
+    max-width: 100%;
+    height: auto
+} 
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .img-fluid {
+        max-width: 100%;
+        height: auto
+    }  
+}
 .img-thumbnail {
     padding: .25rem;
     background-color: #fff;

@@ -11,8 +11,8 @@ class DestinationPlaces extends Component {
   render() {
       var {data} = this.state;
       let dataMarkup =
-      data && data.placesData && data.placesData.length > 0 ? (
-        data.placesData.map((not) => {
+      data && data.places && data.places.length > 0 ? (
+        data.places.map((not) => {
           return (
             <div key={not.id} className="col-lg-4 col-md-6">
                 <SinglePlaceDiv data={not}/>
@@ -30,7 +30,7 @@ class DestinationPlaces extends Component {
             <div className="row justify-content-center">
               <div className="col-lg-6">
                 <div className="section_title text-center mb_70">
-                  <h3>All Places to Visit in {data.name}</h3>
+                  <h3>All Places to Visit in {data.name.charAt(0).toUpperCase() + data.name.slice(1)}</h3>
                 </div>
               </div>
             </div>

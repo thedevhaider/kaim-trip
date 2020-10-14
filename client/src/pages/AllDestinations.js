@@ -63,17 +63,17 @@ class AllDestinations extends Component {
                   src={not.thumbnail}
                   alt=""
                 />
-                <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}`} className="blog_item_date">
+                <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}#places`} className="blog_item_date">
                   <h3>{not.places.length}</h3>
                   <p>Places</p>
                 </a>
               </div>
               <div className="blog_details">
               <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}`}>
-                  <h2>{not.name} ({not.state})</h2>
+                  <h2>{not.name.charAt(0).toUpperCase() + not.name.slice(1)} ({not.state})</h2>
                 </a>
                 <p>
-                  {not.description.replace(/^(.{120}[^\s]*).*/, "$1")}....
+                  {not.tagline.replace(/^(.{120}[^\s]*).*/, "$1")}....
                 </p>
               </div>
             </article>

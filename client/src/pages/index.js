@@ -53,7 +53,7 @@ class Index extends Component {
               <title>Kaim Trip</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
-            <Slider/>
+            {!this.state.isLoadingDestination ? <Slider data ={this.state.destinationsData}/> : loadingDiv }
             {!this.state.isLoadingDestination ? <PopularDestinations data ={this.state.destinationsData}/> : loadingDiv }
             {!this.state.isLoadingPlace ? <PopularPlaces data ={this.state.placesData}/> : loadingDiv }
             <VideoTestimonial/>
