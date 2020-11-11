@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Youtube from './YouTube';
 import ImageGallery from './ImageGallery';
 
-class DestinationDetails extends Component {
+class PlaceDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -91,4 +91,4 @@ class DestinationDetails extends Component {
   }
 }
 
-export default DestinationDetails;
+export default PlaceDetails;

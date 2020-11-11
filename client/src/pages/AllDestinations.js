@@ -62,6 +62,7 @@ class AllDestinations extends Component {
                   className="card-img rounded-0"
                   src={not.thumbnail}
                   alt=""
+                  style={{width:'750px',height:'375px'}}
                 />
                 <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}#places`} className="blog_item_date">
                   <h3>{not.places.length}</h3>
