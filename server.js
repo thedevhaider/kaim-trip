@@ -55,7 +55,11 @@ app.use("/api/destinations", destinations);
 app.use("/api/contacts", contacts);
 app.use("/api/places", places);
 
+<<<<<<< HEAD
 if (process.env.NODE_ENV) {
+=======
+if (process.env.NODE_ENV === "production") {
+>>>>>>> aafc00b0bbc1f88ad3028573e9ce552e2fb3a979
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
