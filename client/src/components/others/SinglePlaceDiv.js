@@ -25,7 +25,7 @@ class SinglePlaceDiv extends Component {
               .replace(/\s/g, "-")}/${PlaceData._id}`}
             className="prise"
           >
-            ₹ {PlaceData.budget} +
+            ₹ {PlaceData.budget}+
           </a>
         </div>
         <div className="place_info">
