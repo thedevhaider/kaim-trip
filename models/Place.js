@@ -43,7 +43,7 @@ const PlaceSchema = new Schema(
       required: true,
     },
     schedule: {
-      type: [String],
+      type: Array,
     },
   },
   { timestamps: true }
