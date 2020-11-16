@@ -19,16 +19,16 @@ module.exports = function validateDestinationInput(data) {
     errors.name = "Name is required";
   }
 
-  if (!Validator.isLength(data.description, { min: 10, max: 300 })) {
-    errors.description = "Description must be 10 to 300 character long";
+  if (!Validator.isLength(data.description, { min: 10, max: 500 })) {
+    errors.description = "Description must be 10 to 500 character long";
   }
 
   if (Validator.isEmpty(data.description)) {
     errors.description = "Description is required";
   }
 
-  if (!Validator.isLength(data.tagline, { min: 10, max: 30 })) {
-    errors.tagline = "Tagline must be 10 to 30 character long";
+  if (!Validator.isLength(data.tagline, { min: 10, max: 200 })) {
+    errors.tagline = "Tagline must be 10 to 200 character long";
   }
 
   if (Validator.isEmpty(data.tagline)) {
