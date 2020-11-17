@@ -59,7 +59,7 @@ class Contact extends Component {
                     <div className="col-sm-6">
                         <div className="form-group">
                         <input className="form-control valid" name="number" id="number" type="text"
-                        required onChange={this.handleChange} placeholder="Enter Contact Number * EG +919569448252" />
+                        required onChange={this.handleChange} placeholder="Enter Contact Number *eg- +919569448252" />
                         </div>
                         <div style={{color: "#FF0000"}} className="form-group">
                           {errors.number?errors.number:''}

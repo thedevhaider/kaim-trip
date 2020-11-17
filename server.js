@@ -2,7 +2,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const express = require("express");
-const path=require('path');
+const path = require("path");
 const mongoose = require("mongoose");
 const users = require("./routes/api/users");
 const destinations = require("./routes/api/destinations");
@@ -18,7 +18,6 @@ const app = express();
 var cors = require("cors");
 
 app.use(cors({ origin: "*" }));
-
 
 //Adding middlerware to express app
 app.use(
@@ -56,12 +55,11 @@ app.use("/api/destinations", destinations);
 app.use("/api/contacts", contacts);
 app.use("/api/places", places);
 
-if(process.env.NODE_ENV)
-{
-    app.use(express.static('client/build'));
-    app.get('*',(req,res) =>{
-        res.sendFile(path.resolve(__dirname,'client','build','index.html'));
-    })
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
 }
 
 const PORT = process.env.PORT || 5000;

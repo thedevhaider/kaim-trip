@@ -2717,9 +2717,10 @@ h3 {
 
 /* line 30, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_destination.scss */
 .popular_destination_area .single_destination .thumb img {
-  width: 200px;
+  width: 362px;
     display: block;
     margin-left: auto;
+    height:204px;
     margin-right: auto;
 }
 
@@ -2887,10 +2888,6 @@ h3 {
 }
 
 /* line 145, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_destination.scss */
-.destination_details_info .destination_info .single_destination {
-  margin-bottom: 22px;
-}
-
 /* line 147, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_destination.scss */
 .destination_details_info .destination_info .single_destination h4 {
   font-size: 16px;
@@ -3086,10 +3083,11 @@ h3 {
 
 /* line 18, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_popular_place.scss */
 .popular_places_area .single_place .thumb img {
-  width: 200px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  width: 362px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 204px;
 }
 
 /* line 21, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_popular_place.scss */
@@ -4201,7 +4199,6 @@ h6 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width:200px
 }
 
 /* line 449, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_elements.scss */

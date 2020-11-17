@@ -123,10 +123,15 @@ router.post(
                   }
                 }
 
-                if (req.body.schedule && req.body.schedule.length > 0)
-                  placeField.schedule = imagePromisesRes.slice(
+                if (req.body.schedule && req.body.schedule.length > 0) {
+                  const images = imagePromisesRes.slice(
                     -req.body.schedule.length
                   );
+                  req.body.schedule.map((day, index) => {
+                    day.image = images[index];
+                  });
+                  placeField.schedule = req.body.schedule;
+                }
 
                 new Place(placeField)
                   .save()

@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 
 class PopularDestinations extends Component {
-   constructor(props) {
-        super(props);
-        this.state = {
-          data : this.props.data
-        };
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: this.props.data,
+    };
+  }
   render() {
-      var {data} = this.state;
-      let PopularDestinationsMarkup =
+    var { data } = this.state;
+    let PopularDestinationsMarkup =
       data && data.length > 0 ? (
         data.map((not) => {
           return (
@@ -20,7 +20,21 @@ class PopularDestinations extends Component {
                 </div>
                 <div className="content">
                   <p className="d-flex align-items-center">
-                   {not.name} <a href={`/destination/${not.name.toLowerCase().replace(/\s/g, "-")}-${not.tagline.toLowerCase().replace(/\s/g, "-")}/${not._id.toLowerCase().replace(/\s/g, "-")}`}> {not.places.length} Places</a>{" "}
+                    <a
+                      href={`/destination/${not.name
+                        .toLowerCase()
+                        .replace(
+                          /\s/g,
+                          "-"
+                        )}-${not.tagline
+                        .toLowerCase()
+                        .replace(/\s/g, "-")}/${not._id
+                        .toLowerCase()
+                        .replace(/\s/g, "-")}`}
+                    >
+                      {" "}
+                      {not.name} ({not.places.length} Places)
+                    </a>{" "}
                   </p>
                 </div>
               </div>
@@ -28,9 +42,7 @@ class PopularDestinations extends Component {
           );
         })
       ) : (
-        <div>
-          You have no data yet
-        </div>
+        <div>You have no data yet</div>
       );
     return (
       <div className="popular_destination_area">
@@ -46,16 +58,16 @@ class PopularDestinations extends Component {
               </div>
             </div>
           </div>
+          <div className="row">{PopularDestinationsMarkup}</div>
           <div className="row">
-          {PopularDestinationsMarkup}
-          </div>
-          <div className="row">
-          <div className="col-lg-12">
-            <div className="more_place_btn text-center">
-              <a className="boxed-btn4" href="/destinations">More Destinations</a>
+            <div className="col-lg-12">
+              <div className="more_place_btn text-center">
+                <a className="boxed-btn4" href="/destinations">
+                  More Destinations
+                </a>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     );
