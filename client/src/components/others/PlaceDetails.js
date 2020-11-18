@@ -77,14 +77,11 @@ class PlaceDetails extends Component {
           </div>
           {data.youtube ? <Youtube videoLink={data.youtube} /> : ""}
         </div>
-        <div className="whole-wrap">
-          <div className="container box_1170">
-            <div className="section-top-border">
-              <h3>Image Gallery</h3>
-              {data.images ? <ImageGallery videoLink={data.images} /> : ""}
-            </div>
-          </div>
-        </div>
+        {data.images ? (
+          <ImageGallery images={data.images} name={data.name} />
+        ) : (
+          ""
+        )}
       </fragment>
     );
   }

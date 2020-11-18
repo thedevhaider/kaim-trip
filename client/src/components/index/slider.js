@@ -12,8 +12,6 @@ class slider extends Component {
   }
   render() {
     var { data } = this.state;
-    data.push(data[0]);
-    console.log(data);
     let dataMarkup =
       data && data.length > 0 ? (
         data.map((not) => {
@@ -30,7 +28,20 @@ class slider extends Component {
                         <div className="slider_text text-center">
                           <h3>{not.name}</h3>
                           <p>{not.tagline} </p>
-                          <a href="/" className="boxed-btn3">
+                          <a
+                            href={`/destination/${not.name
+                              .toLowerCase()
+                              .replace(
+                                /\s/g,
+                                "-"
+                              )}-${not.tagline
+                              .toLowerCase()
+                              .replace(
+                                /\s/g,
+                                "-"
+                              )}/${not._id.toLowerCase().replace(/\s/g, "-")}`}
+                            className="boxed-btn3"
+                          >
                             Explore Now
                           </a>
                         </div>
@@ -43,7 +54,7 @@ class slider extends Component {
           );
         })
       ) : (
-        <div>No Places to Visit.Please Check Later</div>
+        <div></div>
       );
     const settings = {
       dots: true,
@@ -51,8 +62,8 @@ class slider extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
-      speed: 2000,
-      autoplaySpeed: 2000,
+      speed: 6500,
+      autoplaySpeed: 5000,
       cssEase: "linear",
     };
     return (

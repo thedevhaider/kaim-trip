@@ -16,7 +16,15 @@ class SinglePlaceDiv extends Component {
     return (
       <div className="single_place">
         <div className="thumb">
-          <img src={PlaceData.thumbnail} alt="" />
+          <a
+            href={`/place/${PlaceData.name
+              .toLowerCase()
+              .replace(/\s/g, "-")}-${PlaceData.tagline
+              .toLowerCase()
+              .replace(/\s/g, "-")}/${PlaceData._id}`}
+          >
+            <img src={PlaceData.thumbnail} alt={PlaceData.name} />
+          </a>
           <a
             href={`/place/${PlaceData.name
               .toLowerCase()
@@ -47,7 +55,7 @@ class SinglePlaceDiv extends Component {
             </span>
             <div className="days">
               <i className="fa fa-clock-o" />
-              <a href="/">{PlaceData.duration} Days</a>
+              {PlaceData.duration} Days
             </div>
           </div>
         </div>

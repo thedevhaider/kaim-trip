@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { getDestinations } from "../../utils/data";
+import { getDestinations, getPlaces } from "../../utils/data";
 
 class Footer extends Component {
   constructor(props) {
     super(props);
     this.state = {
       destinationsData: null,
+      placesData: null,
     };
   }
   componentDidMount() {
@@ -19,16 +20,34 @@ class Footer extends Component {
       .catch((error) => {
         console.error(error);
       });
+    getPlaces(0, 6)
+      .then((responseJson) => {
+        this.setState({
+          placesData: responseJson,
+          isLoadingDestination: false,
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
   render() {
-    var { destinationsData } = this.state;
+    var { destinationsData, placesData } = this.state;
     let popularDestinations =
       destinationsData && destinationsData.length > 0 ? (
         destinationsData.map((not) => {
           return (
             <fragment>
               <li>
-                <a href="/">
+                <a
+                  href={`/destination/${not.name
+                    .toLowerCase()
+                    .replace(/\s/g, "-")}-${not.tagline
+                    .toLowerCase()
+                    .replace(/\s/g, "-")}/${not._id
+                    .toLowerCase()
+                    .replace(/\s/g, "-")}`}
+                >
                   {not.name.replace(/\w\S*/g, function (txt) {
                     return (
                       txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
@@ -40,9 +59,36 @@ class Footer extends Component {
           );
         })
       ) : (
-        <div>You have no data yet</div>
+        <div></div>
       );
-
+    let popularPlaces =
+      placesData && placesData.length > 0 ? (
+        placesData.map((not) => {
+          return (
+            <fragment>
+              <li>
+                <a
+                  href={`/places/${not.name
+                    .toLowerCase()
+                    .replace(/\s/g, "-")}-${not.tagline
+                    .toLowerCase()
+                    .replace(/\s/g, "-")}/${not._id
+                    .toLowerCase()
+                    .replace(/\s/g, "-")}`}
+                >
+                  {not.name.replace(/\w\S*/g, function (txt) {
+                    return (
+                      txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+                    );
+                  })}
+                </a>
+              </li>
+            </fragment>
+          );
+        })
+      ) : (
+        <div></div>
+      );
     return (
       <footer className="footer">
         <div className="footer_top">
@@ -143,14 +189,8 @@ class Footer extends Component {
               </div>
               <div className="col-xl-3 col-md-6 col-lg-3">
                 <div className="footer_widget">
-                  <h3 className="footer_title">Image Gallery</h3>
-                  <div className="instagram_feed">
-                    <div className="single_insta">
-                      <a href="/">
-                        <img src="/img/instagram/1.png" alt="" />
-                      </a>
-                    </div>
-                  </div>
+                  <h3 className="footer_title">Popular Places</h3>
+                  <ul className="links double_links">{popularPlaces}</ul>
                 </div>
               </div>
             </div>
