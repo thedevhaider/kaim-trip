@@ -14,13 +14,7 @@ class PopularDestinations extends Component {
         data.map((not) => {
           return (
             <div key={not._id} className="col-lg-4 col-md-6">
-              <div className="single_destination">
-                <div className="thumb">
-                  <img src={not.thumbnail} alt={not.name} />
-                </div>
-                <div className="content">
-                  <p className="d-flex align-items-center">
-                    <a
+            <a
                       href={`/destination/${not.name
                         .toLowerCase()
                         .replace(
@@ -32,17 +26,24 @@ class PopularDestinations extends Component {
                         .toLowerCase()
                         .replace(/\s/g, "-")}`}
                     >
+              <div className="single_destination">
+                <div className="thumb">
+                  <img src={not.thumbnail} alt={not.name} />
+                </div>
+                <div className="content">
+                  <p className="d-flex align-items-center">
                       {" "}
                       {not.name} ({not.places.length} Places)
-                    </a>{" "}
+                    {" "}
                   </p>
                 </div>
               </div>
+              </a>
             </div>
           );
         })
       ) : (
-        <div>You have no data yet</div>
+        <div>''</div>
       );
     return (
       <div className="popular_destination_area">

@@ -29,7 +29,7 @@ class PlaceDetails extends Component {
                       />
                     </div>
                     <div className="col-md-9 mt-sm-20">
-                      <p>{data.description}</p>
+                      <p>{day.description}</p>
                     </div>
                   </div>
                 </div>
@@ -42,7 +42,7 @@ class PlaceDetails extends Component {
                   <h3 className="mb-30">{`Day ${index + 1}`}</h3>
                   <div className="row">
                     <div className="col-md-9 mt-sm-20">
-                      <p>{data.description}</p>
+                      <p>{day.description}</p>
                     </div>
                     <div className="col-md-3">
                       <img src={day} alt="" className="img-fluid" />
@@ -54,7 +54,7 @@ class PlaceDetails extends Component {
           }
         })
       ) : (
-        <div>You have no data yet</div>
+        <div></div>
       );
     return (
       <fragment>
@@ -65,7 +65,11 @@ class PlaceDetails extends Component {
                 <div className="destination_info">
                   <h3>Description</h3>
                   <p>{data.description}</p>
-                  <h3>Total Duration of Journey {data.duration}</h3>
+                  <h3>
+                    {data && data.schedule && data.schedule.length > 0
+                      ? `Total Duration of Journey ${data.duration}`
+                      : ""}
+                  </h3>
                   {daysMarkup}
                 </div>
               </div>
@@ -73,14 +77,11 @@ class PlaceDetails extends Component {
           </div>
           {data.youtube ? <Youtube videoLink={data.youtube} /> : ""}
         </div>
-        <div className="whole-wrap">
-          <div className="container box_1170">
-            <div className="section-top-border">
-              <h3>Image Gallery</h3>
-              {data.images ? <ImageGallery videoLink={data.images} /> : ""}
-            </div>
-          </div>
-        </div>
+        {data.images ? (
+          <ImageGallery images={data.images} name={data.name} />
+        ) : (
+          ""
+        )}
       </fragment>
     );
   }

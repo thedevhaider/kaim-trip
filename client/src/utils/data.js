@@ -1,10 +1,7 @@
 import axios from "axios";
 
 export const contactForm = async (user) => {
-  const { data } = await axios.post(
-    `/api/contacts/`,
-    user
-  );
+  const { data } = await axios.post(`/api/contacts/`, user);
   return data;
 };
 
@@ -35,26 +32,20 @@ export const getPlaces = async (skip, limit) => {
 };
 
 export const getDestinationDetails = async (DestinationId) => {
-  var { data } = await axios.get(
-    `/api/destinations/${DestinationId}`,
-    {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-type": "Application/json",
-      },
-    }
-  );
+  var { data } = await axios.get(`/api/destinations/${DestinationId}`, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-type": "Application/json",
+    },
+  });
   return data;
 };
 export const getPlaceDetails = async (PlaceId) => {
-  var { data } = await axios.get(
-    `/api/places/${PlaceId}`,
-    {
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Content-type": "Application/json",
-      },
-    }
-  );
+  var { data } = await axios.get(`/api/places/${PlaceId}`, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Content-type": "Application/json",
+    },
+  });
   return data;
 };

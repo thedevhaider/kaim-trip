@@ -21,7 +21,6 @@ class PopularPlaces extends Component {
         })
       ) : (
         <div>
-        No Places to Visit.Please Check Later
         </div>
       );
     return (
