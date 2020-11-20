@@ -27,7 +27,9 @@ class slider extends Component {
                       <div className="col-xl-12 col-md-12">
                         <div className="slider_text text-center">
                           <h3>{not.name}</h3>
-                          <p>{not.tagline} </p>
+                          <p style={{ "font-family": "Comic Sans MS" }}>
+                            {not.tagline}{" "}
+                          </p>
                           <a
                             href={`/destination/${not.name
                               .toLowerCase()

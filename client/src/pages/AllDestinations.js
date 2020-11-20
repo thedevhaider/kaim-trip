@@ -16,18 +16,19 @@ class AllDestinations extends Component {
       skip: 0,
       limit: 10,
       hasMore: true,
-      width: 0, height: 0 
+      width: 0,
+      height: 0,
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.getNextDestinations = this.getNextDestinations.bind(this);
   }
   componentWillUnmount() {
-  window.removeEventListener('resize', this.updateWindowDimensions);
-}
+    window.removeEventListener("resize", this.updateWindowDimensions);
+  }
 
-updateWindowDimensions() {
-  this.setState({ width: window.innerWidth, height: window.innerHeight });
-}
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
   componentDidMount() {
     // Get Initial Destinations.
     getDestinations(this.state.skip, this.state.limit)
@@ -40,8 +41,8 @@ updateWindowDimensions() {
       .catch((error) => {
         console.error(error);
       });
-  this.updateWindowDimensions();
-  window.addEventListener('resize', this.updateWindowDimensions);
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
   }
   // Update the destinations.
   componentDidUpdate(prevProps, prevState) {
@@ -74,7 +75,10 @@ updateWindowDimensions() {
       destinationsData && destinationsData.length > 0 ? (
         destinationsData.map((not) => {
           return (
-            <article className="blog_item">
+            <article
+              className="blog_item"
+              style={this.state.width > 1000 ? { width: "750px" } : {}}
+            >
               <div className="blog_item_img">
                 <a
                   href={`/destination/${not.name
@@ -89,8 +93,11 @@ updateWindowDimensions() {
                     className="card-img rounded-0"
                     src={not.banner}
                     alt={not.name}
-                    style={ this.state.width>1000 ? { width: "750px", height: "375px" } : {}}
-
+                    style={
+                      this.state.width > 1000
+                        ? { width: "750px", height: "375px" }
+                        : {}
+                    }
                   />
                 </a>
                 {not.places.length !== 0 ? (

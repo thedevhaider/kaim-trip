@@ -48,7 +48,7 @@ class SinglePlaceDiv extends Component {
               {PlaceData.name.charAt(0).toUpperCase() + PlaceData.name.slice(1)}
             </h3>
           </a>
-          <p>{PlaceData.tagline}</p>
+          <p style={{ "font-family": "Comic Sans MS" }}>{PlaceData.tagline}</p>
           <div className="rating_days d-flex justify-content-between">
             <span className="d-flex justify-content-center align-items-center">
               {RatingData}
