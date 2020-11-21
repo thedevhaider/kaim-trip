@@ -23,10 +23,10 @@ app.use(cors({ origin: "*" }));
 app.use(
   bodyParser.urlencoded({
     extended: false,
-    limit: "100mb",
+    limit: "500mb",
   })
 );
-app.use(bodyParser.json({ limit: "100mb" }));
+app.use(bodyParser.json({ limit: "500mb" }));
 
 //Config Keys
 const db = process.env.MONGO_URI;
