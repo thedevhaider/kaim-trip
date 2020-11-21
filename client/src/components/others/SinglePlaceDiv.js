@@ -55,7 +55,7 @@ class SinglePlaceDiv extends Component {
             </span>
             <div className="days">
               <i className="fa fa-clock-o" />
-              {PlaceData.duration} Days
+              {PlaceData.duration} {PlaceData.duration > 1 ? "Days" : "Day"}
             </div>
           </div>
         </div>
