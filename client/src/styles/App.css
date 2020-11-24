@@ -2090,15 +2090,22 @@ h3 {
 
 /* line 23, ../../Arafath/CL/December/231. Travel-02/HTML/scss/_bradcam.scss */
 .bradcam_area::before {
+  content: "";
   position: absolute;
   left: 0;
+  right: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
-  background: #040e27;
-  opacity: 0.1;
-  z-index: -1;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+.slider_active::before {
   content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
 }
 
 @media (max-width: 767px) {
