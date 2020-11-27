@@ -45,7 +45,11 @@ class ImageGallery extends Component {
                   this.setState({ isOpen: true, photoIndex: index })
                 }
                 className="single-gallery-image"
-                style={{ background: `url(${not})`, width: "330px" }}
+                style={{
+                  background: `url(${not})`,
+                  width: "330px",
+                  cursor: "pointer",
+                }}
               />
             </div>
           );

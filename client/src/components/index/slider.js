@@ -17,11 +17,11 @@ class slider extends Component {
         data.map((not) => {
           return (
             <div className="slider_area">
-              <div
-                style={{ backgroundImage: `url(${not.banner})` }}
-                className="slider_active owl-carousel"
-              >
-                <div className="single_slider  d-flex align-items-center slider_bg_1 overlay">
+              <div className="slider_active">
+                <div
+                  className="single_slider  d-flex align-items-center slider_bg_1"
+                  style={{ backgroundImage: `url(${not.banner})` }}
+                >
                   <div className="container">
                     <div className="row align-items-center">
                       <div className="col-xl-12 col-md-12">
@@ -65,7 +65,7 @@ class slider extends Component {
       slidesToScroll: 1,
       autoplay: true,
       speed: 1500,
-      autoplaySpeed: 5000,
+      autoplaySpeed: 2500,
       cssEase: "linear",
     };
     return (
