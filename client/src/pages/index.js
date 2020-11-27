@@ -50,7 +50,7 @@ class Index extends Component {
     return (
         <div>
             <Helmet>
-              <title>Kaim Trip</title>
+              <title>KaimTrip - Adventure and Travelling</title>
               <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
             </Helmet>
             {!this.state.isLoadingDestination ? <Slider data ={this.state.destinationsData}/> : loadingDiv }
