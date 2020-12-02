@@ -98,7 +98,7 @@ class Footer extends Component {
                 <div className="footer_widget">
                   <div className="footer_logo">
                     <a href="/">
-                      <img src="/img/footer_logo.png" alt="" />
+                      <img src="/img/footer_logo.svg" alt="" />
                     </a>
                   </div>
                   <p>
