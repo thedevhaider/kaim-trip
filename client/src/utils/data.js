@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const contactForm = async (user) => {
   const { data } = await axios.post(
-    `http://ec2-52-66-241-0.ap-south-1.compute.amazonaws.com:5000/api/contacts/`,
+    `/api/contacts/`,
     user
   );
   return data;
@@ -10,7 +10,7 @@ export const contactForm = async (user) => {
 
 export const getDestinations = async (skip, limit) => {
   var { data } = await axios.get(
-    `http://ec2-52-66-241-0.ap-south-1.compute.amazonaws.com:5000/api/destinations/popular/?skip=${skip}&limit=${limit}`,
+    `/api/destinations/popular/?skip=${skip}&limit=${limit}`,
     {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -23,7 +23,7 @@ export const getDestinations = async (skip, limit) => {
 
 export const getPlaces = async (skip, limit) => {
   var { data } = await axios.get(
-    `http://ec2-52-66-241-0.ap-south-1.compute.amazonaws.com:5000/api/places/popular/?skip=${skip}&limit=${limit}`,
+    `/api/places/popular/?skip=${skip}&limit=${limit}`,
     {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -36,7 +36,7 @@ export const getPlaces = async (skip, limit) => {
 
 export const getDestinationDetails = async (DestinationId) => {
   var { data } = await axios.get(
-    `http://ec2-52-66-241-0.ap-south-1.compute.amazonaws.com:5000/api/destinations/${DestinationId}`,
+    `/api/destinations/${DestinationId}`,
     {
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -48,7 +48,7 @@ export const getDestinationDetails = async (DestinationId) => {
 };
 export const getPlaceDetails = async (PlaceId) => {
   var { data } = await axios.get(
-    `http://ec2-52-66-241-0.ap-south-1.compute.amazonaws.com:5000/api/places/${PlaceId}`,
+    `/api/places/${PlaceId}`,
     {
       headers: {
         "Access-Control-Allow-Origin": "*",
