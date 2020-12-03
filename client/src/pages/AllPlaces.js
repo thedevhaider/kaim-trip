@@ -64,7 +64,7 @@ class AllPlaces extends Component {
         })
       ) : (
         <div>
-        No Places to Visit.Please Check Later
+        No Places to Visit. Please Check Later
         </div>
       );
     let loadingDiv =
@@ -88,7 +88,7 @@ class AllPlaces extends Component {
             {
               // Set the Page Header
             }
-            <PageHeader name="All places" tagline="All places" banner = {"/img/banner/bradcam2.png"}/>
+            <PageHeader name="All Treks" tagline="KaimTrip covers almost all the most popular treks along with well-trained guides. All these treks vary in terms of difficulty, duration, cultural elements, and of course, remoteness. Depending upon these factors within your budget you can make your decision as to which trek would be the most suitable for you." banner = {"/img/banner/bradcam2.png"}/>
             {!this.state.isLoadingDestination ?
                   <InfinitScroll
                   dataLength = {this.state.placesData.length}

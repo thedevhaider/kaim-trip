@@ -35,7 +35,7 @@ class Header extends Component {
                           </li>
                           <li>
                             <a href="/places">
-                              Places
+                              Treks
                             </a>
                           </li>
                           <li>

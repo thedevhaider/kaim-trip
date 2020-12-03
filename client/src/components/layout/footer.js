@@ -102,7 +102,7 @@ class Footer extends Component {
                     </a>
                   </div>
                   <p>
-                    5th flora, 700/D kings road, green <br /> lane New York-1782{" "}
+                  T19/804, Motiya Royal City <br /> Chandigarh Ambala Highway <br /> Zirakpur, Chandigarh (India){" "}
                     <br />
                     <a
                       target="_blank"
@@ -176,7 +176,7 @@ class Footer extends Component {
                       <a href="/destinations"> Destinations</a>
                     </li>
                     <li>
-                      <a href="/places"> Places</a>
+                      <a href="/places"> Treks</a>
                     </li>
                   </ul>
                 </div>
@@ -189,7 +189,7 @@ class Footer extends Component {
               </div>
               <div className="col-xl-3 col-md-6 col-lg-3">
                 <div className="footer_widget">
-                  <h3 className="footer_title">Popular Places</h3>
+                  <h3 className="footer_title">Popular Treks</h3>
                   <ul className="links double_links">{popularPlaces}</ul>
                 </div>
               </div>

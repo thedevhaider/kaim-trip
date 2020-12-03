@@ -25,33 +25,29 @@ class About extends Component {
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
-                <div className="story_heading">
-                  <h3>Our Story</h3>
-                </div>
                 <div className="row">
                   <div className="col-lg-11 offset-lg-1">
                     <div className="story_info">
                       <div className="row">
                         <div className="col-lg-9">
+                        <div className="story_heading">
+                          <h3>WELCOME HOME FELLOW TRAVELERS!</h3>
+                        </div>
                           <p>
-                            Consulting represents success at realizing the
-                            company is going in the wrong direction. The only
-                            time the company fails is when it is not possible to
-                            do a turnaround anymore. We help companies pivot
-                            into more profitable directions where they can
-                            expand and grow. It is inevitable that companies
-                            will end up making a few mistakes; we help them
-                            correct these mistakes.
+                          Have you ever said to yourself one of the following: <br /> <br />
+                          “How do I find the money to travel? It seems too expensive for me.” <br />
+                          “Where do I find the best travel deals?” <br />
+                          “How do I save money on flights, accommodation, and other big expenses?” <br />
+                          “How do I plan my trip?” <br />
+                          “How do I stay safe and healthy?” <br />
+                          “How do I maximize my time?” <br />
+                          “I want to travel more but I don’t know the first step.” <br />
                           </p>
                           <p>
-                            Consulting represents success at realizing the
-                            company is going in the wrong direction. The only
-                            time the company fails is when it is not possible to
-                            do a turnaround anymore. We help companies pivot
-                            into more profitable directions where they can
-                            expand and grow. It is inevitable that companies
-                            will end up making a few mistakes; we help them
-                            correct these mistakes.
+                          You are not alone. Over the past years, We’ve helped lots of people answer those questions and travel 
+                          more for less with time tested and proven tips and advice. By using this website, you can spend less 
+                          time searching the Internet and being overwhelmed with information and more time doing the one thing 
+                          you want to do: travel more.
                           </p>
                         </div>
                       </div>
