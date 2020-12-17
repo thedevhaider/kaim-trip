@@ -155,8 +155,22 @@ router.get("/popular", (req, res) => {
   const limit = req.query.limit ? Number(req.query.limit) : 10;
 
   // Query Destinations
-  Destination.find({}, {}, { skip: skip, limit: limit })
-    .sort({ places: -1 })
+  Destination.aggregate([
+    {
+      $addFields: {
+        places_count: { $size: { $ifNull: ["$places", []] } },
+      },
+    },
+    {
+      $sort: { places_count: -1 },
+    },
+    {
+      $limit: limit,
+    },
+    {
+      $skip: skip,
+    },
+  ])
     .then((destinations) => res.json(destinations))
     .catch((err) =>
       res.status(400).json({ error: "Could not able to list Destinations" })
