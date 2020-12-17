@@ -60,12 +60,12 @@ class PopularDestinations extends Component {
       <div className="popular_destination_area">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-6">
+            <div className="col-lg-12">
               <div className="section_title text-center mb_70">
                 <h3>Popular Destinations</h3>
                 <p>
-                  Suffered alteration in some form, by injected humour or good
-                  day randomised booth anim 8-bit hella wolf moon beard words.
+                With a country full of fascinating destinations, choosing the perfect vacation spot can present a great challenge for you. 
+                That's why KaimTrip has used expert opinions, current trends, reader votes, scenic beauty, food scenes and more to compile this list of India's best places to visit.
                 </p>
               </div>
             </div>

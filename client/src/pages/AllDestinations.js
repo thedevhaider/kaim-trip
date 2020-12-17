@@ -168,7 +168,8 @@ class AllDestinations extends Component {
         }
         <PageHeader
           name="All Destinations"
-          tagline="All Destinations"
+          tagline="We Cover Almost All The Most Popular Destination In India Where You Can Plan Your Solo Or Group Trips, Adventure Activities, 
+          Camping, Trekking, Honeymoon Trips, And Even Destination Weddings. "
           banner={"/img/banner/bradcam2.png"}
         />
         {!this.state.isLoadingDestination ? (

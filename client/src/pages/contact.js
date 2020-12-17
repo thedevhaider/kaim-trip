@@ -37,7 +37,7 @@ class Contact extends Component {
           <title>Contact Us | Kaim Trip</title>
           <meta name="description" content="KaimTrip offers you a very useful platform to plan your most memorable customized trips to feel the nature at its best and to spend your precious time with your loved ones!!!" />
         </Helmet>
-        <PageHeader name="Contact Us" tagline="To get the Quotes and Travelling Plan. Contact US." banner = {"/img/banner/bradcam4.png"}/>
+        <PageHeader name="How can we help you?" tagline="Looking for help using KaimTrip services? Our support team can help.​​​​​​​" banner = {"/img/banner/bradcam4.png"}/>
         <section className="contact-section">
           <div className="container">
             <div className="row">
@@ -102,8 +102,8 @@ class Contact extends Component {
                 <div className="media contact-info">
                   <span className="contact-info__icon"><i className="ti-home" /></span>
                   <div className="media-body">
-                    <h3>Buttonwood, California.</h3>
-                    <p>Rosemead, CA 91770</p>
+                    <h3>T19/804, Motiya Royal City</h3>
+                    <p>Zirakpur, Chandigarh (India)</p>
                   </div>
                 </div>
                 <div className="media contact-info">
