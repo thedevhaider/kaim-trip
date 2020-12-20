@@ -69,7 +69,14 @@ class slider extends Component {
       cssEase: "linear",
     };
     return (
-      <div>
+      <div
+        style={{
+          "overflow-x": "hidden",
+          overflow: "hidden",
+          height: "auto",
+          "padding-bottom": "30px",
+        }}
+      >
         <Slider {...settings}>{dataMarkup}</Slider>
       </div>
     );
