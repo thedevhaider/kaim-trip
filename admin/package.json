@@ -1,0 +1,31 @@
+{
+  "name": "kaim-admin",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "nodemon": "nodemon app.js",
+    "server": "npm install && npm run nodemon"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie-parser": "~1.4.3",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.5.7",
+    "ejs-lint": "^0.3.0",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "formidable": "^1.2.1",
+    "fs": "0.0.1-security",
+    "jwt-decode": "^3.0.0-beta.2",
+    "mongoose": "^5.3.4",
+    "multer": "^1.4.2",
+    "request": "^2.88.0",
+    "request-ip": "^2.1.3",
+    "request-promise": "^4.2.6"
+  },
+  "proxy": "http://localhost:80",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

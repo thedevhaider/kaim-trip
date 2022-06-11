@@ -1,0 +1,42 @@
+<%
+titleCase = function(value)
+{
+    if(value)
+    {
+        try{
+            return value.split(' ').map(w=>w[0].toUpperCase()+w.substr(1).toLowerCase()).join(' ');
+        }
+        catch(err)
+        {
+            return value;
+        }
+    }
+    else
+    {
+        return value;
+    }
+}
+
+
+%>
+
+    <%
+
+function formatDate(date) {
+    if(date == undefined)
+    {
+        return "Coming Soon"
+    }
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+
+    var day = date.getDate();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+    return day + ' ' + monthNames[monthIndex] + ' ' + year;
+  }
+  %>

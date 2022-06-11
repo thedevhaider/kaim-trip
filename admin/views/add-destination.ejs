@@ -1,0 +1,97 @@
+<% include header %>
+    <% include topNav %>
+        <% include functions %>
+            <% include asside %>
+                <div class="page-wrapper">
+                    <!-- ============================================================== -->
+                    <!-- Bread crumb and right sidebar toggle -->
+                    <!-- ============================================================== -->
+                    <div class="page-breadcrumb">
+                        <div class="row">
+                            <div class="col-7 align-self-center">
+                                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">
+                                    Add new Destination.
+                                </h4>
+                                <div class="d-flex align-items-center">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb m-0 p-0">
+                                            <li class="breadcrumb-item"><a href="/" class="text-muted">Home</a></li>
+                                            <li class="breadcrumb-item text-muted active" aria-current="page">Add Destination</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form class="mt-3 form-horizontal" method="post" target="_blank" action="/add-destination">
+                                            <div class="form-group row">
+                                                <label for="" class="col-sm-6 col-form-label">Destination Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="destinationName" minlength="2" maxlength="30" size="30" required class="form-control" placeholder="Shimla">
+                                                    *Name must be 2 to 30 character long
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Description</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="description" minlength="10" maxlength="1000" size="1000"  required class="form-control" placeholder="Beautiful Place">
+                                                    *Description must be 10 to 1000 character long
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Tagline</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="tagline" minlength="10" maxlength="50" size="50"  required class="form-control" placeholder="City of Beauty">
+                                                    *Tagline must be 10 to 50 character long"
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">State</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="state" minlength="3" maxlength="50" size="50" required class="form-control" placeholder="HP">
+                                                    *State must be 3 to 50 character long
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Add thumbnail  (Width-362px , Height-204px)</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="custom-file">
+                                                        <input accept="image/*" required  type="file" class="custom-file-input" name="thumbnailUpload" id="thumbnailUploadButton" onChange="UpdateBase64('thumbnail')" >
+                                                        <input type="hidden" class="custom-file-input" name="thumbnail" id="thumbnailUploadBase64">
+                                                        <label class="custom-file-label" for="thumbnailUpload">Choose file</label>
+                                                    </div>
+                                                    <div id="thumbnailName"></div>
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Add Banner (Width-1920px , Height-650px)</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="custom-file">
+                                                        <input accept="image/*" required  type="file" class="custom-file-input" name="bannerUpload" id="bannerUploadButton" onChange="UpdateBase64('banner')" >
+                                                        <input type="hidden" class="custom-file-input" name="banner" id="bannerUploadBase64">
+                                                        <label class="custom-file-label" for="bannerUpload">Choose file</label>
+                                                    </div>
+                                                    <div id="bannerName"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-8 text-center ">
+                                                <button type="submit " class="btn btn-block btn-dark ">Add Destination</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <script language="JavaScript">
+                    async function UpdateBase64(field){
+                        const file = document.querySelector(`#${field}UploadButton`).files[0];
+                        document.getElementById(`${field}UploadBase64`).value  = await toBase64(file)
+                        document.getElementById(`${field}Name`).innerHTML=file.name
+                        alert(`${file.name} Uploaded`);
+                    }
+                    const toBase64 = file => new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                    });
+                    </script>
+                <% include footer %>

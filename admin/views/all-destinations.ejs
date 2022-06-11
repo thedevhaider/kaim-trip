@@ -1,0 +1,75 @@
+<% include header %>
+    <% include topNav %>
+        <% include asside %>
+            <% include functions %>
+                <div class="page-wrapper">
+                    <!-- ============================================================== -->
+                    <!-- Bread crumb and right sidebar toggle -->
+                    <!-- ============================================================== -->
+                    <div class="page-breadcrumb">
+                        <div class="row">
+                                            <div class="col-7 align-self-center">
+                                                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1"> All Places</h4>
+                                                <div class="d-flex align-items-center">
+                                                    <nav aria-label="breadcrumb">
+                                                        <ol class="breadcrumb m-0 p-0">
+                                                            <li class="breadcrumb-item"><a href="/" class="text-muted">Home</a></li>
+                                                            <li class="breadcrumb-item text-muted active" aria-current="page">All Places</li>
+                                                        </ol>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table id="multi_col_order" class="table table-striped table-bordered display" style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Description</th>
+                                                        <th>Tagline</th>
+                                                        <th>State</th>
+                                                        <th>All Details</th>
+                                                        <th>Delete Destination</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% data.reverse().forEach(function(data){%>
+                                                        <tr>
+                                                            <td>
+                                                                <%= titleCase(data.name) %>
+                                                            </td>
+                                                            <td>
+                                                                <%= titleCase(data.description) %>
+                                                            </td>
+                                                            <td>
+                                                                <%= titleCase(data.tagline) %>
+                                                            </td>
+                                                            <td>
+                                                                <%= titleCase(data.state) %>
+                                                            </td>
+                                                            <td>
+                                                                <a href="http://localhost:80/api/destinations/<%= data._id %>" target="_blank"> More Info.</a>
+                                                            </td>
+                                                            <td>
+                                                                    <a href="delete/<%= data._id %>/destinations" target="_blank"> Delete.</a>
+                                                            </td>
+                                                        </tr>
+                                                        <%})%>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <% include footer %>

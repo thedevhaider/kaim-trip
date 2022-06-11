@@ -1,0 +1,169 @@
+<% include header %>
+    <% include topNav %>
+        <% include functions %>
+            <% include asside %>
+                <div class="page-wrapper">
+                    <!-- ============================================================== -->
+                    <!-- Bread crumb and right sidebar toggle -->
+                    <!-- ============================================================== -->
+                    <div class="page-breadcrumb">
+                        <div class="row">
+                            <div class="col-7 align-self-center">
+                                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">
+                                    Add new place.
+                                </h4>
+                                <div class="d-flex align-items-center">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb m-0 p-0">
+                                            <li class="breadcrumb-item"><a href="/" class="text-muted">Home</a></li>
+                                            <li class="breadcrumb-item text-muted active" aria-current="page">Add place</li>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <form class="mt-3 form-horizontal" method="post" action="/add-place">
+                                            <div class="form-group row">
+                                                <label for="" class="col-sm-6 col-form-label">place Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="name" minlength="2" maxlength="30" size="30" required class="form-control" placeholder="Shimla">
+                                                    *Name must be 2 to 30 character long
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Description</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="description" minlength="10" maxlength="1000" size="1000" required class="form-control" placeholder="Beautiful Place">
+                                                    *Description must be 10 to 1000 character long
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Tagline</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="tagline" minlength="10" maxlength="50" size="50" required class="form-control" placeholder="City of Beauty">
+                                                    *Tagline must be 10 to 50 character long
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Duration</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="duration" min="0" oninput="this.value = Math.abs(this.value)" required class="form-control" placeholder="5">
+                                                    *Duration cannot be negative
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Rating</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="rating" min="1" max="5 required class="form-control" placeholder="3">
+                                                    <br/>
+                                                    *Rating should be between 1 and 5 inclusively"
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Budget</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="budget" min="0" oninput="this.value = Math.abs(this.value)" required class="form-control" placeholder="1000">
+                                                    *Budget cannot be negative
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Choose Destination</label>
+                                                <div class="col-sm-10">
+                                                <select name="destination">
+                                                    <% data.reverse().forEach(function(data){%>
+                                                        <option value="<%= data._id %>"><%= data.name %> (<%= data.state %>)</option>
+                                                    <%})%>
+                                                </select>
+                                                    </div>
+                                                <label for="" class="col-sm-6 col-form-label">Youtube Video Link</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="youtube" class="form-control" placeholder="">
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Add thumbnail (Width-362px , Height - 204px)</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="custom-file">
+                                                        <input accept="image/*"  type="file" class="custom-file-input" name="thumbnailUpload" id="thumbnailUploadButton" onChange="SingleImageUpdateBase64('thumbnail')" >
+                                                        <input type="hidden" class="custom-file-input" name="thumbnail" id="thumbnailUploadBase64">
+                                                        <label class="custom-file-label" for="thumbnailUpload">Choose file</label>
+                                                    </div>
+                                                    <div id="thumbnailName"></div>
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Add Banner  (Width-1920px , Height -650px)</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="custom-file">
+                                                        <input accept="image/*"  type="file" class="custom-file-input" name="bannerUpload" id="bannerUploadButton" onChange="SingleImageUpdateBase64('banner')" >
+                                                        <input type="hidden" class="custom-file-input" name="banner" id="bannerUploadBase64">
+                                                        <label class="custom-file-label" for="bannerUpload">Choose file</label>
+                                                    </div>
+                                                    <div id="bannerName"></div>
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Add Images</label>
+                                                <div class="input-group mb-3">
+                                                    <div class="custom-file">
+                                                        <input accept="image/*" multiple type="file" class="custom-file-input" name="galleryUpload" id="galleryUploadButton" onChange="MultipleImageUpdateBase64('gallery')">
+                                                        <input type="hidden" class="custom-file-input" name="images" id="galleryUploadBase64">
+                                                        <label class="custom-file-label" for="galleryUpload">Choose file</label>
+                                                    </div>
+                                                </div>
+                                                <label for="" class="col-sm-6 col-form-label">Add Schedule (Width-263px , Height - 180px)</label>
+                                                <div class="input-group mb-3">
+                                                    <input type="text" name="descriptionSchedule" class="form-control" placeholder="Add Schedule Description"><br/>
+                                                    <div class="custom-file">
+                                                        <input accept="image/*" multiple type="file" class="custom-file-input" name="schedule" id="schedule1UploadButton" onChange="ScheduleImageUpdateBase64(1)">
+                                                        <input type="hidden" class="custom-file-input" name="scheduleImage" id="schedule1UploadBase64">
+                                                        <label class="custom-file-label" for="scheduleUpload">Choose file</label>
+                                                    </div>
+                                                </div>
+                                                    <button type="button" name="addDom">Add New Schedule.</button>
+                                            </div>
+                                            <div class="col-lg-8 text-center ">
+                                                <button type="submit " class="btn btn-block btn-dark ">Add place</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+                <script language="JavaScript">
+                    let number=2
+                    $(document).ready(function() {
+  $("button[name='addDom']").click(function() {
+    var domElement = $(`<div class="input-group mb-3">
+                                                    <input type="text" name="descriptionSchedule" class="form-control" placeholder="Add Schedule Description"><br/>
+                                                    <div class="custom-file">
+                                                        <input  multiple type="file" class="custom-file-input" name="schedule" id="schedule${number}UploadButton" onChange="ScheduleImageUpdateBase64(${number})">
+                                                        <input type="hidden" class="custom-file-input" name="scheduleImage" id=schedule${number++}UploadBase64>
+                                                        <label class="custom-file-label" for="scheduleUpload">Choose file</label>
+                                                    </div>
+                                                </div>`);
+    $(this).before(domElement);
+  });
+});
+                    const toBase64 = file => new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.readAsDataURL(file);
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = error => reject(error);
+                    });
+                    async function MultipleImageUpdateBase64(field){
+                        const file = document.querySelector(`#${field}UploadButton`).files;
+                        var images=[];
+                        for(i of file)
+                        {
+                            var data=await toBase64(i);
+                            images.push(data)
+                        }
+                        document.getElementById(`${field}UploadBase64`).value  = images;
+                        alert("Files have been added.");
+                    }
+                    async function ScheduleImageUpdateBase64(i){
+                        const file = document.querySelector(`#schedule${i}UploadButton`).files[0];
+                        document.getElementById(`schedule${i}UploadBase64`).value  = await toBase64(file)
+                        alert(`${file.name} Uploaded`);
+                    }
+                    async function SingleImageUpdateBase64(field){
+                        const file = document.querySelector(`#${field}UploadButton`).files[0];
+                        document.getElementById(`${field}UploadBase64`).value  = await toBase64(file)
+                        document.getElementById(`${field}Name`).innerHTML=file.name
+                        alert(`${file.name} Uploaded`);
+                    }
+                    </script>
+                <% include footer %>
